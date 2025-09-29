@@ -31,14 +31,14 @@ Dette repositoriet inneholder løsningsforslagene til Arbeidskrav 1 i Python. 
 - Pakk hele prosjektmappen som `.zip` før innlevering.
 
 ## Bruk av AI  
-I arbeidet har jeg benyttet ulike AI-verktøy (bl.a. ChatGPT, Claude Haiku, Llama 4 Scout og Mistral Small) som støtte. Bruken har vært begrenset til følgende:  
+I dette arbeidet ble ulike AI-verktøy (f.eks. ChatGPT, Claude Haiku, Llama 4 Scout og Mistral Small) brukt som støtte.  
 
-- Siden norsk ikke er mitt morsmål, brukte jeg AI for å få oppgavene forklart på en tydeligere og mer forståelig måte.  
-- Etter å ha utarbeidet egne løsninger, spurte jeg AI-verktøyene om alternative løsningsmetoder og sammenlignet forslagene for å forstå ulike tilnærminger.  
-- Jeg brukte AI som støtte til å strukturere oppgaven i tråd med de gitte retningslinjene.  
-- Jeg fikk også hjelp til å utforme denne README-filen.  
+- Siden norsk ikke er mitt morsmål, ble AI brukt for å få oppgavene forklart på en tydeligere og mer forståelig måte.  
+- Etter at egne løsninger var laget, ble AI-verktøy brukt til å få forslag til alternative tilnærminger og sammenligne disse for å forstå ulike metoder.  
+- AI ble brukt som støtte for å strukturere oppgaven i tråd med de gitte retningslinjene.  
+- I noen oppgaver ble det innhentet anbefalinger om hvilke biblioteker som kunne brukes, og hvordan disse kunne implementeres.  
+- AI ble også brukt som støtte i utformingen av denne README-filen.  
 
-AI ble brukt som et støtteverktøy for å tydeliggjøre oppgaver, utforske alternative tilnærminger og strukturere arbeidet i tråd med retningslinjene. Bruken var et supplement i læringsprosessen og et hjelpemiddel for bedre forståelse; det erstattet ikke mitt eget arbeid.  
-
+AI ble brukt som et verktøy for å tydeliggjøre oppgaver, utforske alternative tilnærminger og strukturere arbeidet i tråd med retningslinjene. Bruken bidro til læringsprosessen og fungerte som en hjelp til bedre forståelse.  
 
 
