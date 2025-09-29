@@ -18,5 +18,10 @@ Oppgaveteksten finnes i `arbeidskrav1_oppgavetekst.pdf`.
 # Llama 4 Scout
 # Mistral Small
 
-// Ana dilim Norvecce olmadigi icin sorulrin net sekilde anlasilmasi
-// Proje iskeletinin en mantikli sekilde nasil olusturulacahgina iliskin fikir alindi
+Jeg har brukt flere AI-verktøy (bl.a. ChatGPT, Claude Haiku, Llama 4 Scout og Mistral Small) som støtte i arbeidet. Bruken var begrenset til følgende:
+Fordi norsk ikke er mitt morsmål, har jeg brukt AI til å få oppgavene forklart på en tydeligere måte.
+Etter å ha laget egne løsninger, spurte jeg AI-verktøyene om hvordan oppgavene kunne løses på andre måter, og sammenlignet de ulike forslagene for å forstå forskjellige tilnærminger.
+Jeg brukte AI som hjelp til å strukturere oppgaven i tråd med retningslinjene som ble gitt.
+Jeg fikk støtte til å utforme denne README-filen.
+Ellers ble AI kun brukt som et supplement for å støtte forståelse og læringsprosess, ikke som en fullstendig erstatning for arbeidet.
+
