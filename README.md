@@ -1,27 +1,34 @@
-# Gokstad Akademiet- Arbeidskrav 1 – Python
+# Gokstad Akademiet – Arbeidskrav 1 (Python)
 
-Dette prosjektet inneholder løsningene til Arbeidskrav 1 i faget Python 
-(Backend-Programmering, Emne 1 / Cybersikkerhet, Emne 1).
+## Oversikt
+Dette repositoriet inneholder løsningsforslagene til Arbeidskrav 1 i Python. Oppgavene dekker grunnleggende programmering, datastrukturer, funksjoner, filhåndtering og enkel dataanalyse, og følger kravene i `python2025_arbeidskrav1_oppgavetekst.pdf`.
 
-## Struktur
-- `oppgave1_grunnprogrammering/`  
-- `oppgave2_datastrukturer/`  
-- `oppgave3_funksjoner/`  
-- `oppgave4_opprette_filstruktur_og_sortere_filer/`  
-- `oppgave5_fil_analyse/`  
+## Prosjektstruktur
+| Mappe | Innhold |
+| --- | --- |
+| `oppgave1_grunnprogrammering/` | Interaktive skript som trener på summasjon, strenglengde, multiplikasjonstabeller og listeoperasjoner (`oppgave1_1.py`–`oppgave1_5.py`). |
+| `oppgave2_datastrukturer/` | Løsningsforslag som validerer datoer, splitter/strukturerer lister og dictionaries, og sorterer data (`oppgave2_1.py`–`oppgave2_6.py`). |
+| `oppgave3_funksjoner/` | Funksjoner for IPv4-validering, datoforskjell, RGB→HEX-konvertering og enkel funksjonstesting (`oppgave3_1.py`–`oppgave3_4.py`). |
+| `oppgave4_opprette_filstruktur_og_sortere_filer/` | Skript som genererer en filstruktur med tilfeldige filer og sorterer dem etter filtype (`oppgave4_1.py`, `oppgave4_2.py`). |
+| `oppgave5_fil_analyse/` | CSV-data (`bokutlån.csv`) og analyser som summerer forlengelser, teller sjangre, beregner lånetid, finner manglende innleveringer og mest utlånte titler (`oppgave5_1.py`–`oppgave5_5.py`). |
 
-Oppgaveteksten finnes i `arbeidskrav1_oppgavetekst.pdf`.
+## Komme i gang
+1. Installer Python 3.11 eller nyere.
+2. Klon repositoriet eller pakk det ut lokalt.
+3. Naviger til rotmappen i et terminalvindu.
+4. Kjør ønsket skript med `python path/til/fil.py`. (Flere skript i Oppgave 1 og Oppgave 2 ber om input i terminalen.)
+
+### Tips for oppgavekategoriene
+- **Oppgave 1**: Kjør filene direkte for å løse små terminaloppgaver.
+- **Oppgave 2**: Skriptene leser/bygger datastrukturer i minnet og skriver resultatet til terminalen.
+- **Oppgave 3**: Hver fil definerer én hovedfunksjon; du kan importere funksjonene i egne tester eller kjøre filene direkte for eksempler.
+- **Oppgave 4**: Kjør `oppgave4_1.py` først for å generere `Files/`. Deretter sorterer `oppgave4_2.py` filene inn i `SortedFiles/`. Skriptene kan kjøres flere ganger for å regenerere strukturen.
+- **Oppgave 5**: Programfilene leser `bokutlån.csv`. Sørg for at filen ligger i samme mappe når skriptene kjøres.
+
+## Leveringsrutine (arbeidskrav)
+- Arbeidskrav publiseres i temaet «Arbeidskrav» på Min GA og leveres i den tilhørende innleveringen.
+- Lag en tydelig hovedmappe for prosjektet. Du kan bruke undermapper pr. oppgave (som i dette repositoriet) eller velstrukturerte filnavn i én mappe.
+- Pakk hele prosjektmappen som `.zip` før innlevering.
 
 ## Bruk av AI
-# ChatGPT
-# Claude Haiku
-# Llama 4 Scout
-# Mistral Small
-
-Jeg har brukt flere AI-verktøy (bl.a. ChatGPT, Claude Haiku, Llama 4 Scout og Mistral Small) som støtte i arbeidet. Bruken var begrenset til følgende:
-Fordi norsk ikke er mitt morsmål, har jeg brukt AI til å få oppgavene forklart på en tydeligere måte.
-Etter å ha laget egne løsninger, spurte jeg AI-verktøyene om hvordan oppgavene kunne løses på andre måter, og sammenlignet de ulike forslagene for å forstå forskjellige tilnærminger.
-Jeg brukte AI som hjelp til å strukturere oppgaven i tråd med retningslinjene som ble gitt.
-Jeg fikk støtte til å utforme denne README-filen.
-Ellers ble AI kun brukt som et supplement for å støtte forståelse og læringsprosess, ikke som en fullstendig erstatning for arbeidet.
-
+Bruk av AI er tillatt så lenge all relevant bruk dokumenteres. Ta vare på prompt og svar for AI-verkøy som har bidratt direkte til løsningen, og inkluder dem i README eller i en egen fil. Alternativt kan du oppgi at AI ikke er brukt for en bestemt del. Denne README-en er utarbeidet ved hjelp av ChatGPT for å oppsummere prosjektet; kildekoden er skrevet manuelt.
