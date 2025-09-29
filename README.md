@@ -30,5 +30,15 @@ Dette repositoriet inneholder løsningsforslagene til Arbeidskrav 1 i Python. 
 - Lag en tydelig hovedmappe for prosjektet. Du kan bruke undermapper pr. oppgave (som i dette repositoriet) eller velstrukturerte filnavn i én mappe.
 - Pakk hele prosjektmappen som `.zip` før innlevering.
 
-## Bruk av AI
-Bruk av AI er tillatt så lenge all relevant bruk dokumenteres. Ta vare på prompt og svar for AI-verkøy som har bidratt direkte til løsningen, og inkluder dem i README eller i en egen fil. Alternativt kan du oppgi at AI ikke er brukt for en bestemt del. Denne README-en er utarbeidet ved hjelp av ChatGPT for å oppsummere prosjektet; kildekoden er skrevet manuelt.
+## Bruk av AI  
+I arbeidet har jeg benyttet ulike AI-verktøy (bl.a. ChatGPT, Claude Haiku, Llama 4 Scout og Mistral Small) som støtte. Bruken har vært begrenset til følgende:  
+
+- Siden norsk ikke er mitt morsmål, brukte jeg AI for å få oppgavene forklart på en tydeligere og mer forståelig måte.  
+- Etter å ha utarbeidet egne løsninger, spurte jeg AI-verktøyene om alternative løsningsmetoder og sammenlignet forslagene for å forstå ulike tilnærminger.  
+- Jeg brukte AI som støtte til å strukturere oppgaven i tråd med de gitte retningslinjene.  
+- Jeg fikk også hjelp til å utforme denne README-filen.  
+
+AI ble brukt som et støtteverktøy for å tydeliggjøre oppgaver, utforske alternative tilnærminger og strukturere arbeidet i tråd med retningslinjene. Bruken var et supplement i læringsprosessen og et hjelpemiddel for bedre forståelse; det erstattet ikke mitt eget arbeid.  
+
+
+
