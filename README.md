@@ -1,44 +1,77 @@
-# Gokstad Akademiet – Arbeidskrav 1 (Python)
+# Python Fundamentals, File Processing & CSV Analysis
 
-## Oversikt
-Dette repositoriet inneholder løsningsforslagene til Arbeidskrav 1 i Python. Oppgavene dekker grunnleggende programmering, datastrukturer, funksjoner, filhåndtering og enkel dataanalyse, og følger kravene i `python2025_arbeidskrav1_oppgavetekst.pdf`.
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![CSV](https://img.shields.io/badge/CSV-Data%20Processing-2E8B57?style=for-the-badge)
+![File Handling](https://img.shields.io/badge/File-Handling-5A67D8?style=for-the-badge)
 
-## Prosjektstruktur
-| Mappe | Innhold |
+Practical Python exercises covering core programming concepts, data structures, reusable functions, file organization, and CSV analysis.
+
+## Highlights
+
+- Interactive exercises using input, conditionals, loops, and formatted output
+- List and dictionary transformations, sorting, and validation
+- Reusable functions for focused calculations and value checking
+- File-system operations using Python's standard library
+- CSV parsing, counting, filtering, and aggregation
+- Small library-loan analyses based on the included dataset
+
+## Project Structure
+
+| Directory | Concepts demonstrated |
 | --- | --- |
-| `oppgave1_grunnprogrammering/` | Interaktive skript som trener på summasjon, strenglengde, multiplikasjonstabeller og listeoperasjoner (`oppgave1_1.py`–`oppgave1_5.py`). |
-| `oppgave2_datastrukturer/` | Løsningsforslag som validerer datoer, splitter/strukturerer lister og dictionaries, og sorterer data (`oppgave2_1.py`–`oppgave2_6.py`). |
-| `oppgave3_funksjoner/` | Funksjoner for IPv4-validering, datoforskjell, RGB→HEX-konvertering og enkel funksjonstesting (`oppgave3_1.py`–`oppgave3_4.py`). |
-| `oppgave4_opprette_filstruktur_og_sortere_filer/` | Skript som genererer en filstruktur med tilfeldige filer og sorterer dem etter filtype (`oppgave4_1.py`, `oppgave4_2.py`). |
-| `oppgave5_fil_analyse/` | CSV-data (`bokutlån.csv`) og analyser som summerer forlengelser, teller sjangre, beregner lånetid, finner manglende innleveringer og mest utlånte titler (`oppgave5_1.py`–`oppgave5_5.py`). |
+| `01_python_basics/` | Fundamental control flow, user input, arithmetic, string comparison, list indexing, and multiplication tables. |
+| `02_data_structures/` | Date validation and transformations between flat lists, dictionaries, sorted values, and lists of records. |
+| `03_functions/` | Reusable functions for IPv4 checks, date differences, RGB-to-HEX conversion, and result comparison. |
+| `04_file_processing/` | Random file generation plus directory creation, deletion, listing, and extension-based file organization. |
+| `05_csv_analysis/` | Standard-library CSV processing for totals, category counts, loan periods, return status, and borrowing frequency. |
 
-## Komme i gang
-1. Installer Python 3.11 eller nyere.
-2. Klon repositoriet eller pakk det ut lokalt.
-3. Naviger til rotmappen i et terminalvindu.
-4. Kjør ønsket skript med `python path/til/fil.py`. (Flere skript i Oppgave 1 og Oppgave 2 ber om input i terminalen.)
+## Featured Components
 
-### Tips for oppgavekategoriene
-- **Oppgave 1**: Kjør filene direkte for å løse små terminaloppgaver.
-- **Oppgave 2**: Skriptene leser/bygger datastrukturer i minnet og skriver resultatet til terminalen.
-- **Oppgave 3**: Hver fil definerer én hovedfunksjon; du kan importere funksjonene i egne tester eller kjøre filene direkte for eksempler.
-- **Oppgave 4**: Kjør `oppgave4_1.py` først for å generere `Files/`. Deretter sorterer `oppgave4_2.py` filene inn i `SortedFiles/`. Skriptene kan kjøres flere ganger for å regenerere strukturen.
-- **Oppgave 5**: Programfilene leser `bokutlån.csv`. Sørg for at filen ligger i samme mappe når skriptene kjøres.
+- **IPv4 validation:** Splits an address into four numeric parts and checks that each value is between `0` and `255`; digit strings with leading zeroes are accepted.
+- **RGB to HEX conversion:** Converts three values in the inclusive `0`–`255` range to an uppercase six-digit HEX color and returns a Norwegian error message when a value is outside that range.
+- **Function-result checking:** Accepts a callable, a list of arguments, and an expected value, then compares the function's result using equality.
+- **Generated file organization:** Creates 30 empty files with random names and `.txt`, `.csv`, or `.log` extensions, then moves them into extension-specific directories. The scripts recreate `generated_files/` and `sorted_files/` when run.
+- **CSV aggregation:** Totals extension days, counts loans in four recognized genres, and identifies entries marked as not returned.
+- **Loan analysis:** Adds the loan period and extension for rows containing non-negative integers, then returns the integer quotient of total days divided by valid rows. A separate analysis finds all titles tied for the highest loan count and sorts ties alphabetically.
 
-## Leveringsrutine (arbeidskrav)
-- Arbeidskrav publiseres i temaet «Arbeidskrav» på Min GA og leveres i den tilhørende innleveringen.
-- Lag en tydelig hovedmappe for prosjektet. Du kan bruke undermapper pr. oppgave (som i dette repositoriet) eller velstrukturerte filnavn i én mappe.
-- Pakk hele prosjektmappen som `.zip` før innlevering.
+## Getting Started
 
-## Bruk av AI  
-I dette arbeidet ble ulike AI-verktøy (f.eks. ChatGPT, Claude Haiku, Llama 4 Scout og Mistral Small) brukt som støtte.  
+The exercises use only modules from the Python standard library.
 
-- Siden norsk ikke er mitt morsmål, ble AI brukt for å få oppgavene forklart på en tydeligere og mer forståelig måte.  
-- Etter at egne løsninger var laget, ble AI-verktøy brukt til å få forslag til alternative tilnærminger og sammenligne disse for å forstå ulike metoder.  
-- AI ble brukt som støtte for å strukturere oppgaven i tråd med de gitte retningslinjene.  
-- I noen oppgaver ble det innhentet anbefalinger om hvilke biblioteker som kunne brukes, og hvordan disse kunne implementeres.  
-- AI ble også brukt som støtte i utformingen av denne README-filen.  
+```bash
+git clone https://github.com/cihat-kose/gokstadakademiet-arbeidskrav1.git
+cd gokstadakademiet-arbeidskrav1
+```
 
-AI ble brukt som et verktøy for å tydeliggjøre oppgaver, utforske alternative tilnærminger og strukturere arbeidet i tråd med retningslinjene. Bruken bidro til læringsprosessen og fungerte som en hjelp til bedre forståelse.  
+Run an individual script from the repository root, for example:
 
+```bash
+python 03_functions/ipv4_validator.py
+```
 
+Several exercises in `01_python_basics/` and `02_data_structures/` prompt for terminal input.
+
+### File-organization exercises
+
+Run these scripts from `04_file_processing/` so their relative `generated_files/` and `sorted_files/` paths are created there:
+
+```bash
+cd 04_file_processing
+python generate_random_files.py
+python sort_files_by_extension.py
+```
+
+> **Note:** Each script removes and recreates its target directory. Do not store files you want to keep in `generated_files/` or `sorted_files/` before running it.
+
+### CSV analysis exercises
+
+The analysis scripts expect `library_loans.csv` in the current working directory. Run them from `05_csv_analysis/`, for example:
+
+```bash
+cd 05_csv_analysis
+python most_borrowed_books.py
+```
+
+## Academic Context
+
+This repository began as a Python learning assignment at Gokstad Akademiet. The original task specification is retained in `docs/original-assignment.pdf`, while the repository is presented here as a compact record of the programming concepts practiced. AI tools were used during the learning process to clarify tasks, explore alternative approaches, and support the organization of the work and documentation.

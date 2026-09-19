@@ -1,6 +1,6 @@
 """
 Oppgave 4.1
-Lag en funksjon som oppretter en mappe kalt Files og genererer 30 tilfeldige filer
+Lag en funksjon som oppretter en mappe kalt generated_files og genererer 30 tilfeldige filer
 med følgende filtyper i denne mappen: .txt, .csv, og .log.
 
 Hver fil skal ha:
@@ -10,7 +10,7 @@ Hver fil skal ha:
 
 Eksempel (struktur):
 
-Files
+generated_files
 |-- G5zLehz4.txt
 |-- iTwTrTkU.txt
 |-- vPcaO7jR.csv
@@ -57,7 +57,7 @@ def skriv_mappestruktur(mappe):
 
 
 if __name__ == "__main__":
-    mappe_navn = "Files"
+    mappe_navn = "generated_files"
     antall_filer = 30
     opprett_tilfeldige_filer(mappe_navn, antall_filer)
     skriv_mappestruktur(mappe_navn)

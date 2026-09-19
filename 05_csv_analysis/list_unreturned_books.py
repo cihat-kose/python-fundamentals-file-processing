@@ -24,7 +24,7 @@ def ikke_levert_bøker(filnavn):
 
 
 if __name__ == "__main__":
-    bøker = ikke_levert_bøker("bokutlån.csv")
+    bøker = ikke_levert_bøker("library_loans.csv")
     if not bøker:
         print("Alle bøker er levert tilbake.")
     else:

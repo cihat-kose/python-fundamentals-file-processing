@@ -20,5 +20,5 @@ def summer_forlengelser(filnavn):
 
 
 if __name__ == "__main__":
-    resultat = summer_forlengelser("bokutlån.csv")
+    resultat = summer_forlengelser("library_loans.csv")
     print(f"Totalt antall dager lånene ble forlenget: {resultat}")
