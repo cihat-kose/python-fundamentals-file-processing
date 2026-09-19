@@ -39,8 +39,8 @@ Practical Python exercises covering core programming concepts, data structures, 
 The exercises use only modules from the Python standard library.
 
 ```bash
-git clone https://github.com/cihat-kose/gokstadakademiet-arbeidskrav1.git
-cd gokstadakademiet-arbeidskrav1
+git clone https://github.com/cihat-kose/python-fundamentals-file-processing.git
+cd python-fundamentals-file-processing
 ```
 
 Run an individual script from the repository root, for example:
