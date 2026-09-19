@@ -44,4 +44,4 @@ def gjennomsnittlig_låneperiode(filnavn):
 
 
 if __name__ == "__main__":
-    gjennomsnittlig_låneperiode("bokutlån.csv")
+    gjennomsnittlig_låneperiode("library_loans.csv")

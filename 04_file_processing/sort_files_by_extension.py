@@ -1,14 +1,14 @@
 """
 Oppgave 4.2
-Lag en funksjon som leser filene i Files og sorterer dem i undermapper basert på filtype:
+Lag en funksjon som leser filene i generated_files og sorterer dem i undermapper basert på filtype:
 
-- Opprett en ny mappe kalt SortedFiles.
-- Opprett undermapper kalt txt, csv, og log inne i denne mappen kalt SortedFiles.
-- Flytt filene fra Files til riktig undermappe i SortedFiles basert på deres filtype.
+- Opprett en ny mappe kalt sorted_files.
+- Opprett undermapper kalt txt, csv, og log inne i denne mappen kalt sorted_files.
+- Flytt filene fra generated_files til riktig undermappe i sorted_files basert på deres filtype.
 
 Eksempel (struktur):
 
-SortedFiles
+sorted_files
 |-- csv
 |   |-- vPcaO7jR.csv
 |   ‘-- 7NMaq7aa.csv
@@ -26,8 +26,8 @@ import shutil
 
 
 def sorter_filer():
-    kilde_mappe = "Files"
-    dest_mappe = "SortedFiles"
+    kilde_mappe = "generated_files"
+    dest_mappe = "sorted_files"
 
     if os.path.exists(dest_mappe):
         shutil.rmtree(dest_mappe)
@@ -45,7 +45,7 @@ def sorter_filer():
             shutil.move(filsti, os.path.join(dest_mappe, "csv", fil))
         elif fil.endswith(".log"):
             shutil.move(filsti, os.path.join(dest_mappe, "log", fil))
-    print("Filer er sortert og flyttet til 'SortedFiles'.")
+    print("Filer er sortert og flyttet til 'sorted_files'.")
 
 
 if __name__ == "__main__":

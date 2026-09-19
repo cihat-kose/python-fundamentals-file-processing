@@ -1,7 +1,7 @@
 """
 Fil Analyse – Introduksjon
 
-Du har fått tilgang til en fil som heter bokutlån.csv. Filen inneholder informasjon om bøker som har blitt lånt ut fra et bibliotek over en gitt periode. Informasjonen er registrert i følgende kolonner:
+Du har fått tilgang til en fil som heter library_loans.csv. Filen inneholder informasjon om bøker som har blitt lånt ut fra et bibliotek over en gitt periode. Informasjonen er registrert i følgende kolonner:
 1. Fornavn – Fornavnet til personen som lånte boken.
 2. Etternavn – Etternavnet til personen som lånte boken.
 3. Boktittel – Navnet på boken som ble lånt.

@@ -39,7 +39,7 @@ def mest_lånte_bøker(filnavn):
 
 
 if __name__ == "__main__":
-    resultater = mest_lånte_bøker("bokutlån.csv")
+    resultater = mest_lånte_bøker("library_loans.csv")
     print("Mest utlånte bøker:")
     for tittel, antall in resultater:
         print(f"- {tittel} ({antall} ganger)")

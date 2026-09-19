@@ -25,6 +25,6 @@ def bøker_per_sjanger(filnavn):
 
 
 if __name__ == "__main__":
-    resultat = bøker_per_sjanger("bokutlån.csv")
+    resultat = bøker_per_sjanger("library_loans.csv")
     for sjanger, antall in resultat.items():
         print(f"{sjanger}: {antall}")
