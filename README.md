@@ -1,5 +1,9 @@
 # Python Fundamentals, File Processing & CSV Analysis
 
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![CSV / Data Processing](https://img.shields.io/badge/CSV%20%2F%20Data%20Processing-4B8BBE)](05_csv_analysis/)
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 Small, runnable Python programs exploring control flow, data structures,
 reusable functions, file organization, and CSV analysis. This is a learning
 portfolio, with straightforward standard-library implementations.
