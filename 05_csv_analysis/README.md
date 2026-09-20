@@ -66,4 +66,6 @@ The average is truncated to whole days and returns `None` without valid rows.
 Unreturned-book listings require a title and both borrower names. Genre counts
 use only the four listed genres. The loan date is retained as context and is
 not parsed by these analyses.
-The return flag alone does not establish whether a loan is overdue.
+An empty unreturned-book result means no qualifying records were found; it does
+not prove that every book was returned. The return flag alone does not establish
+whether a loan is overdue.
