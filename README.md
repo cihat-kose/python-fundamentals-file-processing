@@ -1,77 +1,113 @@
 # Python Fundamentals, File Processing & CSV Analysis
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![CSV](https://img.shields.io/badge/CSV-Data%20Processing-2E8B57?style=for-the-badge)
-![File Handling](https://img.shields.io/badge/File-Handling-5A67D8?style=for-the-badge)
+Small, runnable Python exercises exploring control flow, data structures,
+reusable functions, file organization, and CSV analysis. This is a learning
+portfolio, with straightforward standard-library implementations.
 
-Practical Python exercises covering core programming concepts, data structures, reusable functions, file organization, and CSV analysis.
+## Run an exercise
 
-## Highlights
+Use Python 3.10 or newer. No third-party packages are required. Verified with
+Python 3.13.
 
-- Interactive exercises using input, conditionals, loops, and formatted output
-- List and dictionary transformations, sorting, and validation
-- Reusable functions for focused calculations and value checking
-- File-system operations using Python's standard library
-- CSV parsing, counting, filtering, and aggregation
-- Small library-loan analyses based on the included dataset
+From the repository root:
 
-## Project Structure
+```bash
+python 01_python_basics/sum_number_range.py
+python 03_functions/rgb_to_hex.py
+python 05_csv_analysis/most_borrowed_books.py
+```
 
-| Directory | Concepts demonstrated |
+The first command prompts for input. RGB conversion prints `#CD5C5C`,
+`#000000`, and `#FFFFFF`. Each script runs independently; importing a script
+neither prompts for input nor runs its demonstration.
+
+## Learning sequence
+
+| Directory | Topics |
 | --- | --- |
-| `01_python_basics/` | Fundamental control flow, user input, arithmetic, string comparison, list indexing, and multiplication tables. |
-| `02_data_structures/` | Date validation and transformations between flat lists, dictionaries, sorted values, and lists of records. |
-| `03_functions/` | Reusable functions for IPv4 checks, date differences, RGB-to-HEX conversion, and result comparison. |
-| `04_file_processing/` | Random file generation plus directory creation, deletion, listing, and extension-based file organization. |
-| `05_csv_analysis/` | Standard-library CSV processing for totals, category counts, loan periods, return status, and borrowing frequency. |
+| `01_python_basics/` | Input, conditionals, loops, inclusive ranges, list indices, and formatted multiplication tables |
+| `02_data_structures/` | Calendar validation, list transformations, dictionaries, records, and sorting |
+| `03_functions/` | IPv4 parsing, date differences, RGB conversion, and higher-order functions |
+| `04_file_processing/` | Unique file generation, paths, directory iteration, and extension-based moves |
+| `05_csv_analysis/` | CSV reading, filtering, counters, totals, averages, and ties |
+| `tests/` | Regression tests for validation, malformed CSV rows, imports, and file preservation |
 
-## Featured Components
+Code identifiers, explanations, prompts, and messages are in English. Original
+sample names, book titles, and CSV fields retain their supplied spelling.
 
-- **IPv4 validation:** Splits an address into four numeric parts and checks that each value is between `0` and `255`; digit strings with leading zeroes are accepted.
-- **RGB to HEX conversion:** Converts three values in the inclusive `0`–`255` range to an uppercase six-digit HEX color and returns a Norwegian error message when a value is outside that range.
-- **Function-result checking:** Accepts a callable, a list of arguments, and an expected value, then compares the function's result using equality.
-- **Generated file organization:** Creates 30 empty files with random names and `.txt`, `.csv`, or `.log` extensions, then moves them into extension-specific directories. The scripts recreate `generated_files/` and `sorted_files/` when run.
-- **CSV aggregation:** Totals extension days, counts loans in four recognized genres, and identifies entries marked as not returned.
-- **Loan analysis:** Adds the loan period and extension for rows containing non-negative integers, then returns the integer quotient of total days divided by valid rows. A separate analysis finds all titles tied for the highest loan count and sorts ties alphabetically.
+## Behavior and boundaries
 
-## Getting Started
+- Integer exercises report invalid numeric input. Range sums require a positive
+  integer; multiplication grids require start <= end. Keep grids small enough
+  to read in a terminal. List swapping accepts non-negative indices only.
+- Date functions parse day/month/year using `datetime`, including leap-year
+  validation. Single-digit days and months are accepted. Invalid dates return
+  `False` in the validator and raise `ValueError` in the difference function.
+- IPv4 validation accepts four ASCII decimal octets from 0 to 255, each one to
+  three digits. Leading zeroes are intentionally accepted for this exercise.
+- `rgb_to_hex(red, green, blue)` returns uppercase `#RRGGBB`. It raises
+  `TypeError` for non-integers (including booleans) and `ValueError` for values
+  outside 0–255.
+- `check_function_result(function, arguments, expected_result)` compares the
+  return value using equality. Exceptions from the supplied function propagate.
 
-The exercises use only modules from the Python standard library.
-
-```bash
-git clone https://github.com/cihat-kose/python-fundamentals-file-processing.git
-cd python-fundamentals-file-processing
-```
-
-Run an individual script from the repository root, for example:
-
-```bash
-python 03_functions/ipv4_validator.py
-```
-
-Several exercises in `01_python_basics/` and `02_data_structures/` prompt for terminal input.
-
-### File-organization exercises
-
-Run these scripts from `04_file_processing/` so their relative `generated_files/` and `sorted_files/` paths are created there:
+## File organization
 
 ```bash
-cd 04_file_processing
-python generate_random_files.py
-python sort_files_by_extension.py
+python 04_file_processing/generate_random_files.py
+python 04_file_processing/sort_files_by_extension.py
 ```
 
-> **Note:** Each script removes and recreates its target directory. Do not store files you want to keep in `generated_files/` or `sorted_files/` before running it.
+Paths are relative to the scripts, so these commands also work when launched
+by absolute path from another directory. Each generator run adds 30 empty
+files with unique random names and `.txt`, `.csv`, or `.log` extensions.
+Existing files are preserved. The sorter moves supported regular files into
+`sorted_files/txt/`, `sorted_files/csv/`, and `sorted_files/log/`; it skips
+unsupported files, symbolic links, and destination-name collisions. A skipped
+collision remains in the source directory. Missing source directories produce
+an error. These utilities are intended for local, sequential practice runs.
 
-### CSV analysis exercises
+The functions also accept explicit directory paths, as demonstrated by the
+tests using temporary directories. The tracked empty generated files are
+legacy exercise artifacts retained in this private archive; new generated
+output is ignored.
 
-The analysis scripts expect `library_loans.csv` in the current working directory. Run them from `05_csv_analysis/`, for example:
+## CSV analysis
+
+The scripts locate `05_csv_analysis/library_loans.csv` beside their source
+files. Their functions accept a different CSV path for experimentation.
+[`dataset_overview.py`](05_csv_analysis/dataset_overview.py) documents the
+Norwegian source fields and their English meanings. CLI genre labels are
+translated; original book titles and names are preserved.
+
+Each analysis requires only the fields it uses. Missing values are skipped;
+invalid or negative numeric values produce diagnostics and are skipped.
+Unreturned-book listings require a title and both borrower names. Genre
+counts recognize Fiction, Crime, Nonfiction, and Fantasy in their source
+spellings. The average includes extension days and truncates to whole days
+using integer division; it returns `None` when there are no valid rows.
+Most-borrowed results include every title tied for first, sorted by title.
+The return flag does not by itself establish whether a loan is overdue.
+
+## Verification
 
 ```bash
-cd 05_csv_analysis
-python most_borrowed_books.py
+python -m unittest discover -s tests -v
 ```
 
-## Academic Context
+Tests cover leap years, malformed IPv4 octets, RGB types and ranges, silent
+imports, file collisions and preservation, incomplete CSV rows, invalid
+numeric values, empty results, and tied borrowing counts.
 
-This repository began as a Python learning assignment at Gokstad Akademiet. The original task specification is retained in `docs/original-assignment.pdf`, while the repository is presented here as a compact record of the programming concepts practiced. AI tools were used during the learning process to clarify tasks, explore alternative approaches, and support the organization of the work and documentation.
+## Background and repository status
+
+The exercises began as a Python learning assignment at Gokstad Akademiet.
+AI tools supported task clarification, alternative approaches, organization,
+and subsequent code and documentation refinement.
+
+This repository remains the **private development and archive repository**.
+A future public portfolio will use a separate repository with clean history.
+The original assignment is retained at `docs/original-assignment.pdf` for
+private reference. Dataset provenance and permission to redistribute the
+assignment have not been verified. Review these source materials before
+copying them into the public repository; no license grant is implied here.
