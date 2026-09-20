@@ -1,34 +1,30 @@
-"""
-Oppgave 1.5
-Utvid Oppgave 1.3 slik at brukeren kan angi et intervall [m, n] i stedet for 1-10,
-og programmet skriver ut en pent formatert tabell for tallet i hele intervallet.
+"""Print a multiplication grid for an inclusive integer interval."""
 
-Eksempel på tabell:
 
-| 1 | 2 | 3 |
-|---|---|---|
-| 1 | 2 | 3 |
-| 2 | 4 | 6 |
-| 3 | 6 | 9 |
-"""
+def main():
+    start = int(input("Enter the start (m): "))
+    end = int(input("Enter the end (n): "))
 
-# # Oppgave 1.3
-# tall = int(input("Skriv inn et tall: "))
-#
-# for i in range(1, 11):
-#     print(f"{tall} * {i} = {tall * i}")
+    if start > end:
+        print("The start must not exceed the end.")
+        return
 
-# Oppgave 1.5
-startverdi = int(input("Skriv inn startverdi (m): "))
-sluttverdi = int(input("Skriv inn sluttverdi (n): "))
+    cell_width = max(3, len(str(start)), len(str(end)),
+                     len(str(start * start)), len(str(end * end)),
+                     len(str(start * end)))
 
-celle_bredde = 3
+    header = "| " + " | ".join(f"{i:>{cell_width}}" for i in range(start, end + 1)) + " |"
+    separator = "| " + " | ".join("-" * cell_width for _ in range(start, end + 1)) + " |"
+    print(header)
+    print(separator)
 
-overskrift = "| " + " | ".join(f"{i:>{celle_bredde}}" for i in range(startverdi, sluttverdi + 1)) + " |"
-separator = "| " + " | ".join("-" * celle_bredde for _ in range(startverdi, sluttverdi + 1)) + " |"
-print(overskrift)
-print(separator)
+    for i in range(start, end + 1):
+        row = "| " + " | ".join(f"{i * j:>{cell_width}}" for j in range(start, end + 1)) + " |"
+        print(row)
 
-for i in range(startverdi, sluttverdi + 1):
-    rad = "| " + " | ".join(f"{i * j:>{celle_bredde}}" for j in range(startverdi, sluttverdi + 1)) + " |"
-    print(rad)
+
+if __name__ == "__main__":
+    try:
+        main()
+    except ValueError:
+        print("Please enter valid integers.")

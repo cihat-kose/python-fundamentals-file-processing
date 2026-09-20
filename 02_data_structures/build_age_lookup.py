@@ -1,20 +1,14 @@
-"""
-Oppgave 2.3
-Ta utgangspunkt i listene fra Oppgave 2.2 og lag en dictionary
-der tekstverdier fra listen med navn blir nøkler
-og tallverdiene fra listen med alder blir verdier.
-Skriv ut innholdet av denne dictionary på formatet:
+"""Build a name-to-age dictionary from alternating names and ages."""
 
-"Cecilie er 25 år"
-"Bjørn er 30 år"
-"""
 
-# Oppgave 2.2
-# ["Cecilie", 28, "Bjørn", 30, "Tor", 24, "Anna", 25]
+def main():
+    names_and_ages = ["Cecilie", 28, "Bjørn", 30, "Tor", 24, "Anna", 25]
 
-navn_og_alder_liste = ["Cecilie", 28, "Bjørn", 30, "Tor", 24, "Anna", 25]
+    ages_by_name = {names_and_ages[i]: names_and_ages[i + 1] for i in range(0, len(names_and_ages), 2)}
 
-navn_alder_dict = {navn_og_alder_liste[i]: navn_og_alder_liste[i + 1] for i in range(0, len(navn_og_alder_liste), 2)}
+    for name, age in ages_by_name.items():
+        print(f"{name} is {age} years old")
 
-for navn, alder in navn_alder_dict.items():
-    print(f"{navn} er {alder} år")
+
+if __name__ == "__main__":
+    main()

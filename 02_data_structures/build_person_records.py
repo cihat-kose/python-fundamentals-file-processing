@@ -1,37 +1,18 @@
-"""
-Oppgave 2.6
-Konverter datasettet fra Oppgave 2.2 til en liste av dictionaries
-med formatet:
+"""Convert alternating names and ages into person dictionaries."""
 
-{"navn": "Cecilie", "alder": 28}
 
-Oppgave 2.2’deki veri setini şu formata sahip dictionary’lerden oluşan bir listeye dönüştür:
+def main():
+    names_and_ages = ["Cecilie", 28, "Bjørn", 30, "Tor", 24, "Anna", 25]
 
-{"navn": "Cecilie", "alder": 28}
-"""
+    dictionary_list = []
 
-# """
-# Oppgave 2.2
-# Ta utgangspunkt i en liste der tekst og tall er plassert parvis med navn og alder slik:
-#
-# ["Cecilie", 28, "Bjørn", 30, "Tor", 24, "Anna", 25]
-# """
-#
-# navn_og_alder_liste = ["Cecilie", 28, "Bjørn", 30, "Tor", 24, "Anna", 25]
-#
-# navnliste = [navn_og_alder_liste[i] for i in range(0, len(navn_og_alder_liste), 2)]
-# aldersliste = [navn_og_alder_liste[i] for i in range(1, len(navn_og_alder_liste), 2)]
-#
-# print("Navn:", navnliste)
-# print("Alder:", aldersliste)
+    for i in range(0, len(names_and_ages), 2):
+        name = names_and_ages[i]
+        age = names_and_ages[i + 1]
+        dictionary_list.append({"name": name, "age": age})
 
-navn_og_alder_liste = ["Cecilie", 28, "Bjørn", 30, "Tor", 24, "Anna", 25]
+    print(dictionary_list)
 
-dictionary_list = []
 
-for i in range(0, len(navn_og_alder_liste), 2):
-    navn = navn_og_alder_liste[i]
-    alder = navn_og_alder_liste[i + 1]
-    dictionary_list.append({"navn": navn, "alder": alder})
-
-print(dictionary_list)
+if __name__ == "__main__":
+    main()

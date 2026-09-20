@@ -1,29 +1,15 @@
-"""
-Oppgave 3.4
-Lag en funksjon som tar en annen funksjon som parameter, noen argumenter og et forventet resultat,
-og som returnerer sant hvis det faktiske resultatet stemmer overens med det forventede resultatet, ellers usant.
-"""
+"""Compare a callable's return value with an expected result."""
 
 
-def sjekk_funksjon(funksjon, argumenter, forventet_resultat):
-    faktisk_resultat = funksjon(*argumenter)
-    return faktisk_resultat == forventet_resultat
+def check_function_result(function, arguments, expected_result):
+    """Call function with positional arguments; let its exceptions propagate."""
+    return function(*arguments) == expected_result
 
 
-def addisjon(a, b):
-    return a + b
+def add(first, second):
+    return first + second
 
 
-def subtraksjon(a, b):
-    return a - b
-
-
-def multiplikasjon(a, b):
-    return a * b
-
-
-# Test tilfeller
-print(sjekk_funksjon(addisjon, [3, 4], 7))  # Output: True
-print(sjekk_funksjon(addisjon, [3, 4], 8))  # Output: False
-print(sjekk_funksjon(subtraksjon, [10, 4], 6))  # Output: True
-print(sjekk_funksjon(multiplikasjon, [3, 4], 12))  # Output: True
+if __name__ == "__main__":
+    print(check_function_result(add, [3, 4], 7))
+    print(check_function_result(add, [3, 4], 8))

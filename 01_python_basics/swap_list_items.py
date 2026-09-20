@@ -1,30 +1,25 @@
-"""
-Oppgave 1.4
-Lag et program som bytter plass på to elementer i en gitt liste.
-Programmet skal ta utgangspunkt i følgende liste:
+"""Swap two items using non-negative list indices."""
 
-fruits = ["eple", "banan", "appelsin", "drue", "kiwi"]
 
-1. Be brukeren om å skrive inn to indekser (input) som angir hvilke
-   elementer i listen som skal bytte plass
-2. Bytt plass på elementene som ligger på de angitte indeksene
-3. Skriv ut den oppdaterte listen
+def main():
+    fruits = ["apple", "banana", "orange", "grape", "kiwi"]
 
-Hvis en eller begge indeksene er ugyldige (ikke i listen),
-skal programmet gi en passende feilmelding.
-"""
+    try:
+        first_index = int(input("Enter the first index: "))
+        second_index = int(input("Enter the second index: "))
 
-frukt = ["eple", "banan", "appelsin", "drue", "kiwi"]
+        if 0 <= first_index < len(fruits) and 0 <= second_index < len(fruits):
+            fruits[first_index], fruits[second_index] = fruits[second_index], fruits[first_index]
+            print(f"Updated list: {fruits}")
+        else:
+            print("Invalid index!")
 
-try:
-    første_indeks = int(input("Skriv inn første indeks: "))
-    andre_indeks = int(input("Skriv inn andre indeks: "))
+    except ValueError:
+        print("Please enter integers!")
 
-    if 0 <= første_indeks < len(frukt) and 0 <= andre_indeks < len(frukt):
-        frukt[første_indeks], frukt[andre_indeks] = frukt[andre_indeks], frukt[første_indeks]
-        print(f"Opdatert liste: {frukt}")
-    else:
-        print("Ugyldig indeks!")
 
-except ValueError:
-    print("Du må skrive tall!")
+if __name__ == "__main__":
+    try:
+        main()
+    except ValueError:
+        print("Please enter valid integers.")
