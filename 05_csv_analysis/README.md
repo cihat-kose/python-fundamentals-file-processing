@@ -15,7 +15,7 @@ described as synthetic.
 | --- | --- |
 | `sum_loan_extensions.py` | Total valid extension days across loans |
 | `count_loans_by_genre.py` | Number of loans in each recognized genre |
-| `average_loan_period.py` | Average loan period including extensions, truncated to whole days |
+| `average_loan_period.py` | Average loan period including extensions, truncated to whole days (not rounded) |
 | `list_unreturned_books.py` | Titles and borrower names for records marked as not returned |
 | `most_borrowed_books.py` | Most frequently borrowed titles, including all ties in alphabetical order |
 
@@ -62,7 +62,9 @@ names; preserve these names when preparing compatible synthetic data.
 
 Each analysis uses the fields it needs, ignoring missing required values.
 Numeric analyses skip invalid or negative values and print a diagnostic.
-The average is truncated to whole days and returns `None` without valid rows.
+The average is truncated to whole days rather than rounded; for example,
+27 total days across 2 valid rows returns `13`. It returns `None` without
+valid rows.
 Unreturned-book listings require a title and both borrower names. Genre counts
 use only the four listed genres. The loan date is retained as context and is
 not parsed by these analyses.
