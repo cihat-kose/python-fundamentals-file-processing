@@ -1,7 +1,7 @@
 """Validate four decimal IPv4 octets with a small parsing utility."""
 
 
-def is_valid_ipv4_address(ip_address):
+def is_valid_ipv4_address(ip_address) -> bool:
     """Accept ASCII octets 0-255; leading zeroes are allowed."""
     if not isinstance(ip_address, str):
         return False

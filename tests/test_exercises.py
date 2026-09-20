@@ -31,9 +31,13 @@ class ValidationTests(unittest.TestCase):
     def test_ipv4_boundaries(self):
         validate = load("03_functions/ipv4_validator.py").is_valid_ipv4_address
         for value in ("0.0.0.0", "255.255.255.255", "192.168.0.01"):
-            self.assertTrue(validate(value))
+            result = validate(value)
+            self.assertIsInstance(result, bool)
+            self.assertTrue(result)
         for value in ("256.0.0.1", "1.2.3", "1.2.3.²", "1.2.3.１２", "1.2.3.-1", "1.2.3.0000", None):
-            self.assertFalse(validate(value))
+            result = validate(value)
+            self.assertIsInstance(result, bool)
+            self.assertFalse(result)
 
     def test_dates(self):
         validate = load("01_python_basics/validate_date.py").is_valid_date
