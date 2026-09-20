@@ -36,7 +36,7 @@ class ValidationTests(unittest.TestCase):
             self.assertFalse(validate(value))
 
     def test_dates(self):
-        validate = load("02_data_structures/validate_date.py").is_valid_date
+        validate = load("01_python_basics/validate_date.py").is_valid_date
         self.assertTrue(validate("29/02/2000"))
         for value in ("29/02/1900", "31/04/2024", "hello", "1/2/0"):
             self.assertFalse(validate(value))

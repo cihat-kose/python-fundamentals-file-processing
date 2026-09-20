@@ -25,8 +25,8 @@ neither prompts for input nor runs its demonstration.
 
 | Directory | Topics |
 | --- | --- |
-| `01_python_basics/` | Input, conditionals, loops, inclusive ranges, list indices, and formatted multiplication tables |
-| `02_data_structures/` | Calendar validation, list transformations, dictionaries, records, and sorting |
+| `01_python_basics/` | Input, conditionals, loops, inclusive ranges, list indices, calendar validation, and formatted multiplication tables |
+| `02_data_structures/` | List transformations, dictionaries, records, and sorting |
 | `03_functions/` | IPv4 parsing, date differences, RGB conversion, and higher-order functions |
 | `04_file_processing/` | Unique file generation, paths, directory iteration, and extension-based moves |
 | `05_csv_analysis/` | CSV reading, filtering, counters, totals, averages, and ties |
