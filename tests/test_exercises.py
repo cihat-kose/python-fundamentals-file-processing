@@ -113,6 +113,11 @@ class CsvTests(unittest.TestCase):
                 path.write_text("Boktittel,Låneperiode,Forlenget\n", encoding="utf-8")
                 self.assertIsNone(call("average_loan_period"))
                 self.assertEqual(call("most_borrowed_books"), [])
+                path.write_text("Unrelated\nvalue\n", encoding="utf-8")
+                self.assertEqual(call("sum_loan_extensions"), 0)
+                self.assertEqual(call("count_loans_by_genre"), {})
+                self.assertEqual(call("list_unreturned_books"), [])
+                self.assertEqual(call("most_borrowed_books"), [])
 
 
 if __name__ == "__main__":
