@@ -1,30 +1,28 @@
-"""
-Oppgave 5.2
-Lag en funksjon som beregner hvor mange bøker som er lånt ut per sjanger
-(f.eks. "Fantasy: 3, Krim: 5", osv.) og skriv ut svaret.
-"""
+"""Count loans by genre. See dataset_overview.py for source fields."""
 
 import csv
+from pathlib import Path
 from collections import Counter
 
 
-def bøker_per_sjanger(filnavn):
-    gyldige_sjangre = {"Fiksjon", "Krim", "Sakprosa", "Fantasy"}
-    teller = Counter()
+def count_loans_by_genre(filename):
+    valid_genres = {"Fiksjon", "Krim", "Sakprosa", "Fantasy"}
+    counts = Counter()
 
-    with open(filnavn, "r", encoding="utf-8") as f:
+    with open(filename, "r", encoding="utf-8-sig", newline="") as f:
         reader = csv.DictReader(f)
-        for rad in reader:
-            sjanger = rad.get("Sjanger", "").strip()
-            if sjanger in gyldige_sjangre:
-                teller[sjanger] += 1
-            elif sjanger:
-                print(f"Ugyldig sjanger funnet: {sjanger}")
+        for row in reader:
+            genre = (row.get("Sjanger") or "").strip()
+            if genre in valid_genres:
+                counts[genre] += 1
+            elif genre:
+                print(f"Unrecognized genre: {genre}")
 
-    return teller
+    return counts
 
 
 if __name__ == "__main__":
-    resultat = bøker_per_sjanger("library_loans.csv")
-    for sjanger, antall in resultat.items():
-        print(f"{sjanger}: {antall}")
+    result = count_loans_by_genre(Path(__file__).with_name("library_loans.csv"))
+    for genre, count in result.items():
+        labels = {"Fiksjon": "Fiction", "Krim": "Crime", "Sakprosa": "Nonfiction", "Fantasy": "Fantasy"}
+        print(f"{labels[genre]}: {count}")

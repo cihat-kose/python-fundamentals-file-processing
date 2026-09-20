@@ -1,25 +1,18 @@
-"""
-Oppgave 5.3
-Beregn den gjennomsnittlige låneperioden i antall hele dager for alle bøker som er lånt ut,
-inkludert forlengelsene, og skriv ut svaret.
-
-Türkçe
-Tüm kitaplar için ortalama ödünç süresini (tam gün cinsinden) hesapla;
-uzatmaları (forlenget) da dahil et ve sonucu yazdır.
-"""
+"""Average loan period. See dataset_overview.py for source fields."""
 
 import csv
+from pathlib import Path
 
 
-def gjennomsnittlig_låneperiode(filnavn):
-    total_dager = 0
-    antall = 0
+def average_loan_period(filename):
+    total_days = 0
+    count = 0
 
-    with open(filnavn, "r", encoding="utf-8") as f:
+    with open(filename, "r", encoding="utf-8-sig", newline="") as f:
         reader = csv.DictReader(f)
-        for i, rad in enumerate(reader, start=2):
-            lp = (rad.get("Låneperiode") or "").strip()
-            ext = (rad.get("Forlenget") or "").strip()
+        for i, row in enumerate(reader, start=2):
+            lp = (row.get("Låneperiode") or "").strip()
+            ext = (row.get("Forlenget") or "").strip()
 
             if lp == "" or ext == "":
                 continue
@@ -28,20 +21,20 @@ def gjennomsnittlig_låneperiode(filnavn):
                 lp_i = int(lp)
                 ext_i = int(ext)
                 if lp_i < 0 or ext_i < 0:
-                    raise ValueError("negativ verdi")
-                total_dager += lp_i + ext_i
-                antall += 1
-            except Exception:
-                print(f"Ugyldig verdi i rad {i}: Låneperiode={lp!r}, Forlenget={ext!r}")
+                    raise ValueError("negative value")
+                total_days += lp_i + ext_i
+                count += 1
+            except ValueError:
+                print(f"Invalid value in row {i}: Låneperiode={lp!r}, Forlenget={ext!r}")
 
-    if antall == 0:
-        print("Ingen gyldige rader å beregne gjennomsnitt fra.")
+    if count == 0:
+        print("No valid rows to average.")
         return None
 
-    snitt = round(total_dager // antall)
-    print(f"Gjennomsnittlig låneperiode (inkl. forlengelser): {snitt} dager")
-    return snitt
+    average = total_days // count
+    print(f"Average loan period (including extensions): {average} days")
+    return average
 
 
 if __name__ == "__main__":
-    gjennomsnittlig_låneperiode("library_loans.csv")
+    average_loan_period(Path(__file__).with_name("library_loans.csv"))

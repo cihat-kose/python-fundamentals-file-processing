@@ -1,33 +1,31 @@
-"""
-Oppgave 5.4
-Lag en funksjon som lister opp alle bøkene som ikke ble levert tilbake.
-Returner en liste med navnene på bøkene og hvem som lånte dem, og skriv ut svaret.
-"""
+"""List unreturned books. See dataset_overview.py for source fields."""
 
 import csv
+from pathlib import Path
 
 
-def ikke_levert_bøker(filnavn):
-    resultat = []
+def list_unreturned_books(filename):
+    result = []
 
-    with open(filnavn, "r", encoding="utf-8") as f:
+    with open(filename, "r", encoding="utf-8-sig", newline="") as f:
         reader = csv.DictReader(f)
-        for rad in reader:
-            tilbake = (rad.get("Tilbakelevert") or "").strip().lower()
-            if tilbake == "nei":
-                fornavn = rad.get("Fornavn", "").strip()
-                etternavn = rad.get("Etternavn", "").strip()
-                bok = rad.get("Boktittel", "").strip()
-                resultat.append((bok, f"{fornavn} {etternavn}"))
+        for row in reader:
+            returned = (row.get("Tilbakelevert") or "").strip().lower()
+            if returned == "nei":
+                first_name = (row.get("Fornavn") or "").strip()
+                last_name = (row.get("Etternavn") or "").strip()
+                book = (row.get("Boktittel") or "").strip()
+                if book and first_name and last_name:
+                    result.append((book, f"{first_name} {last_name}"))
 
-    return resultat
+    return result
 
 
 if __name__ == "__main__":
-    bøker = ikke_levert_bøker("library_loans.csv")
-    if not bøker:
-        print("Alle bøker er levert tilbake.")
+    books = list_unreturned_books(Path(__file__).with_name("library_loans.csv"))
+    if not books:
+        print("No unreturned books with complete borrower details found.")
     else:
-        print("Bøker som ikke ble levert tilbake:")
-        for bok, navn in bøker:
-            print(f"- {bok} (lånt av {navn})")
+        print("Unreturned books:")
+        for book, name in books:
+            print(f"- {book} (borrowed by {name})")

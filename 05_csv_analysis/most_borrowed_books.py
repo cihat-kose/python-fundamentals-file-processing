@@ -1,45 +1,36 @@
-"""
-Oppgave 5.5
-Skriv en funksjon som finner hvilke bøker som har blitt lånt flest ganger.
-Funksjonen skal returnere en oversikt over boktitlene og antallet ganger de har blitt lånt ut.
-Hvis flere bøker har blitt lånt ut like mange ganger, skal de sorteres alfabetisk. Skriv ut svaret.
-
-Türkçe
-En çok kaç kez ödünç alınan kitap(ları) bulan bir fonksiyon yaz.
-Fonksiyon, kitap başlıkları ve kaç kere ödünç alındıklarının dökümünü döndürmeli.
-Eğer birden fazla kitap aynı sayıda ödünç alınmışsa alfabetik olarak sıralanmalı. Sonucu yazdır.
-"""
+"""Most borrowed books. See dataset_overview.py for source fields."""
 
 import csv
+from pathlib import Path
 from collections import Counter
 
 
-def mest_lånte_bøker(filnavn):
-    teller = Counter()
-    with open(filnavn, "r", encoding="utf-8") as f:
+def most_borrowed_books(filename):
+    counts = Counter()
+    with open(filename, "r", encoding="utf-8-sig", newline="") as f:
         reader = csv.DictReader(f)
-        for rad in reader:
-            bok = (rad.get("Boktittel") or "").strip()
-            if bok:
-                teller[bok] += 1
+        for row in reader:
+            book = (row.get("Boktittel") or "").strip()
+            if book:
+                counts[book] += 1
 
-    if not teller:
+    if not counts:
         return []
 
-    maks = max(teller.values())
+    maximum = max(counts.values())
 
-    mest = [(tittel, antall) for tittel, antall in teller.items() if antall == maks]
+    most = [(title, count) for title, count in counts.items() if count == maximum]
 
-    def alfabetisk(element):
+    def alphabetical(element):
         return element[0]
 
-    mest.sort(key=alfabetisk)
+    most.sort(key=alphabetical)
 
-    return mest
+    return most
 
 
 if __name__ == "__main__":
-    resultater = mest_lånte_bøker("library_loans.csv")
-    print("Mest utlånte bøker:")
-    for tittel, antall in resultater:
-        print(f"- {tittel} ({antall} ganger)")
+    results = most_borrowed_books(Path(__file__).with_name("library_loans.csv"))
+    print("Most borrowed books:")
+    for title, count in results:
+        print(f"- {title} ({count} loans)")

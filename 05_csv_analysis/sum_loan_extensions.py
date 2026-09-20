@@ -1,24 +1,28 @@
-"""
-Oppgave 5.1
-Skriv et program som summerer opp antall dager lånene ble forlenget og skriv ut svaret.
-"""
+"""Sum loan extensions. See dataset_overview.py for source fields."""
 
 import csv
+from pathlib import Path
 
 
-def summer_forlengelser(filnavn):
+def sum_loan_extensions(filename):
     total = 0
-    with open(filnavn, "r", encoding="utf-8") as f:
+    with open(filename, "r", encoding="utf-8-sig", newline="") as f:
         reader = csv.DictReader(f)
-        for rad in reader:
-            verdi = rad.get("Forlenget", "").strip()
-            if verdi.isdigit():
-                total += int(verdi)
-            elif verdi:
-                print(f"Ugyldig verdi: {verdi}")
+        for row in reader:
+            value = (row.get("Forlenget") or "").strip()
+            if not value:
+                continue
+            try:
+                days = int(value)
+                if days < 0:
+                    raise ValueError("negative value")
+            except ValueError:
+                print(f"Invalid extension value: {value!r}")
+                continue
+            total += days
     return total
 
 
 if __name__ == "__main__":
-    resultat = summer_forlengelser("library_loans.csv")
-    print(f"Totalt antall dager lånene ble forlenget: {resultat}")
+    result = sum_loan_extensions(Path(__file__).with_name("library_loans.csv"))
+    print(f"Total extension days: {result}")
