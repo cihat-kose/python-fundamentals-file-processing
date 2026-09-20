@@ -21,7 +21,7 @@ The first command prompts for input. RGB conversion prints `#CD5C5C`,
 `#000000`, and `#FFFFFF`. Each script runs independently; importing a script
 neither prompts for input nor runs its demonstration.
 
-## Learning sequence
+## Project structure and progression
 
 | Directory | Topics |
 | --- | --- |
@@ -31,6 +31,7 @@ neither prompts for input nor runs its demonstration.
 | `04_file_processing/` | Unique file generation, paths, directory iteration, and extension-based moves |
 | `05_csv_analysis/` | CSV reading, filtering, counters, totals, averages, and ties |
 | `tests/` | Regression tests for validation, malformed CSV rows, imports, and file preservation |
+| `docs/` | Private archive material kept outside the learning sequence |
 
 The sequence moves from Python basics to data-structure transformations, then
 to reusable functions. It applies those foundations to file-system operations
