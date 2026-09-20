@@ -22,4 +22,7 @@ def is_valid_date(value):
 
 if __name__ == "__main__":
     value = input("Enter a date (dd/mm/yyyy): ")
-    print("Valid date" if is_valid_date(value) else "Invalid date")
+    if is_valid_date(value):
+        print("Valid date")
+    else:
+        print("Invalid date. Please use the format dd/mm/yyyy.")
