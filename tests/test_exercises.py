@@ -87,6 +87,19 @@ class FileTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 sort(source, source / "nested")
 
+            empty_source = Path(directory) / "empty-source"
+            empty_destination = Path(directory) / "empty-destination"
+            empty_source.mkdir()
+            marker = empty_destination / "txt" / "previous.txt"
+            marker.parent.mkdir(parents=True)
+            marker.write_text("preserve", encoding="utf-8")
+            self.assertEqual(sort(empty_source, empty_destination), [])
+            self.assertEqual(marker.read_text(encoding="utf-8"), "preserve")
+
+            (empty_source / "notes.md").write_text("skip", encoding="utf-8")
+            self.assertEqual(sort(empty_source, empty_destination), [])
+            self.assertEqual(marker.read_text(encoding="utf-8"), "preserve")
+
 
 class CsvTests(unittest.TestCase):
     def test_missing_invalid_and_tied_rows(self):
