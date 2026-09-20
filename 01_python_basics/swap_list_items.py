@@ -12,14 +12,14 @@ def main():
             fruits[first_index], fruits[second_index] = fruits[second_index], fruits[first_index]
             print(f"Updated list: {fruits}")
         else:
-            print("Invalid index!")
+            print(f"Invalid index. Enter values from 0 to {len(fruits) - 1}.")
 
     except ValueError:
-        print("Please enter integers!")
+        print("Invalid input. Please enter whole-number indices.")
 
 
 if __name__ == "__main__":
     try:
         main()
     except ValueError:
-        print("Please enter valid integers.")
+        print("Invalid input. Please enter whole-number indices.")
