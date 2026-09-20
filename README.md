@@ -103,5 +103,6 @@ numeric values, empty results, and tied borrowing counts.
 
 This repository remains the **private development and archive repository**.
 A future public portfolio will use a separate repository with clean history.
-The bundled source materials and dataset remain private archive content; their
-provenance and redistribution permissions have not been verified.
+The bundled source materials and dataset remain private archive content; the
+borrowing records' provenance cannot be established, and redistribution
+permissions have not been verified.

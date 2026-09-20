@@ -6,8 +6,8 @@ categories, and calculating totals and averages with Python's standard library.
 
 The separate public portfolio repository will use a **synthetic dataset**
 with fictional borrowers and loan records. The current CSV is retained as a
-private archive sample; its provenance is unverified, so it is not currently
-described as synthetic.
+private archive sample; its provenance cannot be established, so it is not
+currently described as synthetic.
 
 ## Analyses in this directory
 
