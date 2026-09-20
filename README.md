@@ -1,10 +1,10 @@
 # Python Fundamentals, File Processing & CSV Analysis
 
-Small, runnable Python exercises exploring control flow, data structures,
+Small, runnable Python programs exploring control flow, data structures,
 reusable functions, file organization, and CSV analysis. This is a learning
 portfolio, with straightforward standard-library implementations.
 
-## Run an exercise
+## Run a script
 
 Use Python 3.10 or newer. No third-party packages are required. Verified with
 Python 3.13.
@@ -37,14 +37,14 @@ sample names, book titles, and CSV fields retain their supplied spelling.
 
 ## Behavior and boundaries
 
-- Integer exercises report invalid numeric input. Range sums require a positive
+- Integer programs report invalid numeric input. Range sums require a positive
   integer; multiplication grids require start <= end. Keep grids small enough
   to read in a terminal. List swapping accepts non-negative indices only.
 - Date functions parse day/month/year using `datetime`, including leap-year
   validation. Single-digit days and months are accepted. Invalid dates return
   `False` in the validator and raise `ValueError` in the difference function.
 - IPv4 validation accepts four ASCII decimal octets from 0 to 255, each one to
-  three digits. Leading zeroes are intentionally accepted for this exercise.
+  three digits. Leading zeroes are accepted by the validator.
 - `rgb_to_hex(red, green, blue)` returns uppercase `#RRGGBB`. It raises
   `TypeError` for non-integers (including booleans) and `ValueError` for values
   outside 0–255.
@@ -69,7 +69,7 @@ an error. These utilities are intended for local, sequential practice runs.
 
 The functions also accept explicit directory paths, as demonstrated by the
 tests using temporary directories. The tracked empty generated files are
-legacy exercise artifacts retained in this private archive; new generated
+legacy artifacts retained in this private archive; new generated
 output is ignored.
 
 ## CSV analysis
@@ -99,15 +99,9 @@ Tests cover leap years, malformed IPv4 octets, RGB types and ranges, silent
 imports, file collisions and preservation, incomplete CSV rows, invalid
 numeric values, empty results, and tied borrowing counts.
 
-## Background and repository status
-
-The exercises began as a Python learning assignment at Gokstad Akademiet.
-AI tools supported task clarification, alternative approaches, organization,
-and subsequent code and documentation refinement.
+## Repository status
 
 This repository remains the **private development and archive repository**.
 A future public portfolio will use a separate repository with clean history.
-The original assignment is retained at `docs/original-assignment.pdf` for
-private reference. Dataset provenance and permission to redistribute the
-assignment have not been verified. Review these source materials before
-copying them into the public repository; no license grant is implied here.
+The bundled source materials and dataset remain private archive content; their
+provenance and redistribution permissions have not been verified.

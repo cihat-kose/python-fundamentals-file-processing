@@ -5,9 +5,9 @@ It provides practice in reading CSV files, filtering records, counting
 categories, and calculating totals and averages with Python's standard library.
 
 The separate public portfolio repository will use a **synthetic dataset**
-with fictional borrowers and loan records. The current CSV is retained from
-the original assignment in this private archive; its provenance is unverified,
-so it is not currently described as synthetic.
+with fictional borrowers and loan records. The current CSV is retained as a
+private archive sample; its provenance is unverified, so it is not currently
+described as synthetic.
 
 ## Analyses in this directory
 

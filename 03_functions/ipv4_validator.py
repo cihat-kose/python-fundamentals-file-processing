@@ -1,8 +1,8 @@
-"""Validate four decimal IPv4 octets with a simple parsing exercise."""
+"""Validate four decimal IPv4 octets with a small parsing utility."""
 
 
 def is_valid_ipv4_address(ip_address):
-    """Accept ASCII octets 0-255; leading zeroes are allowed in this exercise."""
+    """Accept ASCII octets 0-255; leading zeroes are allowed."""
     if not isinstance(ip_address, str):
         return False
     parts = ip_address.split(".")
