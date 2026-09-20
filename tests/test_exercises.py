@@ -34,7 +34,7 @@ class ValidationTests(unittest.TestCase):
             result = validate(value)
             self.assertIsInstance(result, bool)
             self.assertTrue(result)
-        for value in ("256.0.0.1", "1.2.3", "1.2.3.²", "1.2.3.１２", "1.2.3.-1", "1.2.3.0000", None):
+        for value in ("256.0.0.1", "1.2.3", "1.2.3.²", "1.2.3.１２", "١.٢.٣.٤", "1.2.3.-1", "1.2.3.0000", None):
             result = validate(value)
             self.assertIsInstance(result, bool)
             self.assertFalse(result)
