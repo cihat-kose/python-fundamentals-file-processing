@@ -136,6 +136,11 @@ Tests cover leap years, malformed IPv4 octets, RGB types and ranges, silent
 imports, file collisions and preservation, incomplete CSV rows, invalid
 numeric values, empty results, and tied borrowing counts.
 
+## Academic context
+
+This project originated as Python coursework at Gokstad Akademiet and was
+later refined into an English-language learning portfolio.
+
 ## Repository status
 
 This repository remains the **private development and archive repository**.
