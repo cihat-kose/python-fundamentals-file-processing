@@ -105,4 +105,5 @@ This repository remains the **private development and archive repository**.
 A future public portfolio will use a separate repository with clean history.
 The bundled source materials and dataset remain private archive content; the
 borrowing records' provenance cannot be established, and redistribution
-permissions have not been verified.
+permissions have not been verified. Do not reuse the current named borrowing
+records when creating the future public portfolio dataset.

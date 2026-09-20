@@ -8,6 +8,8 @@ The separate public portfolio repository will use a **synthetic dataset**
 with fictional borrowers and loan records. The current CSV is retained as a
 private archive sample; its provenance cannot be established, so it is not
 currently described as synthetic.
+Do not reuse its named borrowers, titles, or records in a future public or
+synthetic dataset; create new fictional records instead.
 
 ## Analyses in this directory
 
