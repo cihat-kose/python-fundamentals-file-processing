@@ -4,6 +4,13 @@ Small, runnable Python programs exploring control flow, data structures,
 reusable functions, file organization, and CSV analysis. This is a learning
 portfolio, with straightforward standard-library implementations.
 
+## Getting started
+
+```bash
+git clone https://github.com/cihat-kose/python-fundamentals-file-processing.git
+cd python-fundamentals-file-processing
+```
+
 ## Run a script
 
 Use Python 3.10 or newer. No third-party packages are required. Verified with
@@ -38,8 +45,7 @@ before combining them in CSV analysis, where parsing, validation, aggregation,
 and edge-case handling are practiced together.
 
 Code identifiers, explanations, prompts, and messages are in English. The CSV
-uses a human-name-free English schema with synthetic borrower IDs and fictional
-book titles.
+uses a human-name-free English schema with borrower IDs and book titles.
 
 ## Behavior and boundaries
 
@@ -69,7 +75,7 @@ book titles.
 - The file-processing scripts create unique sample files, preserve existing
   files, and sort supported files without overwriting collisions or deleting
   previous output.
-- The CSV scripts operate on the synthetic ID-based schema documented in
+- The CSV scripts operate on the ID-based schema documented in
   `05_csv_analysis/README.md`. They aggregate valid data, report invalid
   numeric values, skip incomplete records, and include ties in top-title
   results.
@@ -114,8 +120,8 @@ archive.
 The scripts locate `05_csv_analysis/library_loans.csv` beside their source
 files. Their functions accept a different CSV path for experimentation.
 [CSV analysis documentation](05_csv_analysis/README.md) documents the
-human-name-free English schema and the synthetic data-quality examples used by
-the analysis scripts.
+human-name-free English schema and the data-quality examples used by the
+analysis scripts.
 
 Each analysis requires only the fields it uses. Missing values are skipped;
 invalid or negative numeric values produce diagnostics and are skipped.
@@ -136,15 +142,21 @@ Tests cover leap years, malformed IPv4 octets, RGB types and ranges, silent
 imports, file collisions and preservation, incomplete CSV rows, invalid
 numeric values, empty results, and tied borrowing counts.
 
-## Academic context
+## Academic Context
 
-This project originated as Python coursework at Gokstad Akademiet and was
-later refined into an English-language learning portfolio.
+This project originated from Python coursework at Gokstad Akademiet and was
+later expanded and refined as a personal learning and portfolio project. The
+repository has since been reorganized, documented, and improved beyond its
+original coursework structure.
+
+## License
+
+This project is licensed under the MIT License.
+See [LICENSE](LICENSE) for details.
 
 ## Repository status
 
-This repository remains the **private development and archive repository**.
-A future public portfolio will use a separate repository with clean history.
-The bundled source materials remain private archive content. The working-tree
-CSV is synthetic and uses fictional records; the previous named borrowing
-records were not reused because their provenance could not be established.
+This repository is a public learning and portfolio project. The library-loan
+dataset was provided as part of the original coursework and is used solely for
+educational and portfolio purposes. It is not presented as a record of actual
+library activity.

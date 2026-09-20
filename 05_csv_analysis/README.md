@@ -4,12 +4,11 @@ The dataset represents library borrowing records, with one loan per row.
 It provides practice in reading CSV files, filtering records, counting
 categories, and calculating totals and averages with Python's standard library.
 
-The current CSV is a **synthetic dataset** with synthetic borrower IDs and loan
-records created for learning and portfolio purposes. The previous named
-borrowing records were not reused; their provenance could not be established.
-Keep using newly generated fictional records for future public revisions.
-It includes repeated titles for aggregation examples and a few deliberate
-missing or invalid values so the validation paths can be demonstrated.
+The library-loan dataset was provided as part of the original coursework and
+is used solely for educational and portfolio purposes. It is not presented as
+a record of actual library activity. It includes repeated titles for
+aggregation examples and a few deliberate missing or invalid values so the
+validation paths can be demonstrated.
 
 ## Analyses in this directory
 
@@ -51,8 +50,8 @@ names.
 
 | Column | Meaning |
 | --- | --- |
-| `borrower_id` | Synthetic borrower identifier; no personal names are stored |
-| `book_title` | Fictional book title |
+| `borrower_id` | Borrower identifier; no personal names are stored |
+| `book_title` | Book title |
 | `genre` | `Fiction`, `Crime`, `Nonfiction`, or `Fantasy` |
 | `loan_date` | Loan date in `YYYY-MM-DD` order |
 | `loan_period_days` | Non-negative integer loan period in days |
