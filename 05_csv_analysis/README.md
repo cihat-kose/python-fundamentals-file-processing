@@ -19,6 +19,19 @@ described as synthetic.
 | `list_unreturned_books.py` | Titles and borrower names for records marked as not returned |
 | `most_borrowed_books.py` | Most frequently borrowed titles, including all ties in alphabetical order |
 
+### Required fields by analysis
+
+| Script | Required fields |
+| --- | --- |
+| `sum_loan_extensions.py` | `Forlenget` |
+| `count_loans_by_genre.py` | `Sjanger` |
+| `average_loan_period.py` | `Låneperiode`, `Forlenget` |
+| `list_unreturned_books.py` | `Tilbakelevert`, `Fornavn`, `Etternavn`, `Boktittel` |
+| `most_borrowed_books.py` | `Boktittel` |
+
+Rows missing a required value are skipped. The CSV must still have a header
+row so the scripts can identify these fields.
+
 Run a script from the repository root, for example:
 
 ```bash
