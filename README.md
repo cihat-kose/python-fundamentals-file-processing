@@ -32,17 +32,18 @@ neither prompts for input nor runs its demonstration.
 | `05_csv_analysis/` | CSV reading, filtering, counters, totals, averages, and ties |
 | `tests/` | Regression tests for validation, malformed CSV rows, imports, and file preservation |
 
-Code identifiers, explanations, prompts, and messages are in English. Original
-sample names, book titles, and CSV fields retain their supplied spelling.
+Code identifiers, explanations, prompts, and messages are in English. The CSV
+uses a human-name-free English schema with synthetic borrower IDs and fictional
+book titles.
 
 ## Behavior and boundaries
 
 - Integer programs report invalid numeric input. Range sums require a positive
   integer; multiplication grids require start <= end. Keep grids small enough
   to read in a terminal. List swapping accepts non-negative indices only.
-- Date functions parse day/month/year using `datetime`, including leap-year
-  validation. Single-digit days and months are accepted. Invalid dates return
-  `False` in the validator and raise `ValueError` in the difference function.
+- Date utilities accept day/month/year strings and apply leap-year validation.
+  Single-digit days and months are accepted. Invalid dates return `False` in
+  the validator and raise `ValueError` in the difference function.
 - IPv4 validation accepts four ASCII decimal octets from 0 to 255, each one to
   three digits. Leading zeroes are accepted by the validator.
 - `rgb_to_hex(red, green, blue)` returns uppercase `#RRGGBB`. It raises
@@ -82,10 +83,10 @@ the analysis scripts.
 
 Each analysis requires only the fields it uses. Missing values are skipped;
 invalid or negative numeric values produce diagnostics and are skipped.
-Unreturned-book listings require a title and both borrower names. Genre
-counts recognize Fiction, Crime, Nonfiction, and Fantasy in their source
-spellings. The average includes extension days and truncates to whole days
-using integer division; it returns `None` when there are no valid rows.
+Unreturned-book listings require a title and borrower ID. Genre counts recognize
+Fiction, Crime, Nonfiction, and Fantasy. The average includes extension days
+and truncates to whole days using integer division; it returns `None` when
+there are no valid rows.
 Most-borrowed results include every title tied for first, sorted by title.
 The return flag does not by itself establish whether a loan is overdue.
 
