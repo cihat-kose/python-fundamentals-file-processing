@@ -68,9 +68,9 @@ collision remains in the source directory. Missing source directories produce
 an error. These utilities are intended for local, sequential practice runs.
 
 The functions also accept explicit directory paths, as demonstrated by the
-tests using temporary directories. The tracked empty generated files are
-legacy artifacts retained in this private archive; new generated
-output is ignored.
+tests using temporary directories. All generated and sorted files are
+runtime-only output and are ignored by Git; they are never part of the source
+archive.
 
 ## CSV analysis
 
