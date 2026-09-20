@@ -4,8 +4,8 @@ The dataset represents library borrowing records, with one loan per row.
 It provides practice in reading CSV files, filtering records, counting
 categories, and calculating totals and averages with Python's standard library.
 
-The current CSV is a **synthetic dataset** with fictional borrowers and loan
-records prepared for this portfolio. The previous borrowing records were not
+The current CSV is a **synthetic dataset** with synthetic borrower IDs and loan
+records prepared for this portfolio. The previous named borrowing records were not
 reused; their provenance could not be established. Keep using newly generated
 fictional records for future public revisions.
 It includes repeated titles for aggregation examples and a few deliberate

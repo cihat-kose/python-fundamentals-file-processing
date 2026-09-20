@@ -112,7 +112,7 @@ class CsvTests(unittest.TestCase):
             ])
             rows = list(reader)
         self.assertTrue(rows)
-        self.assertTrue(all(row["borrower_id"].startswith("BORR-") for row in rows))
+        self.assertTrue(all(row["borrower_id"].startswith("P") for row in rows))
         self.assertNotIn("first_name", reader.fieldnames)
         self.assertNotIn("last_name", reader.fieldnames)
 
@@ -123,8 +123,8 @@ class CsvTests(unittest.TestCase):
                 writer = csv.writer(stream)
                 writer.writerow(["book_title", "loan_period_days", "extension_days", "genre", "returned", "borrower_id", "loan_date"])
                 writer.writerows([
-                    ["Beta", "14", "3", "Fantasy", "No", "BORR-001", "2025-01-01"],
-                    ["Alpha", "10", "0", "Crime", "Yes", "BORR-002", "2025-01-02"],
+                    ["Beta", "14", "3", "Fantasy", "No", "P001", "2025-01-01"],
+                    ["Alpha", "10", "0", "Crime", "Yes", "P002", "2025-01-02"],
                     ["Beta", "bad", "-1", "Unknown", "No", "", ""],
                     ["Alpha"],
                     ["", "", "²", "", "", "", ""],
@@ -135,7 +135,7 @@ class CsvTests(unittest.TestCase):
                 self.assertEqual(call("sum_loan_extensions"), 3)
                 self.assertEqual(call("average_loan_period"), 13)
                 self.assertEqual(call("count_loans_by_genre"), {"Fantasy": 1, "Crime": 1})
-                self.assertEqual(call("list_unreturned_books"), [("Beta", "BORR-001")])
+                self.assertEqual(call("list_unreturned_books"), [("Beta", "P001")])
                 self.assertEqual(call("most_borrowed_books"), [("Alpha", 2), ("Beta", 2)])
                 path.write_text("book_title,loan_period_days,extension_days\n", encoding="utf-8")
                 self.assertIsNone(call("average_loan_period"))
