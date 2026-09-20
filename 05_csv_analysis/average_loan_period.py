@@ -27,8 +27,8 @@ def average_loan_period(filename):
             except ValueError:
                 print(
                     f"Invalid value in row {row_number}: "
-                    f"Låneperiode={loan_period_text!r}, "
-                    f"Forlenget={extension_text!r}"
+                    f"loan_period={loan_period_text!r}, "
+                    f"extension={extension_text!r}"
                 )
 
     if count == 0:
