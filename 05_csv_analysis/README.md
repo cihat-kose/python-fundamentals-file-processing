@@ -18,18 +18,18 @@ missing or invalid values so the validation paths can be demonstrated.
 | `sum_loan_extensions.py` | Total valid extension days across loans |
 | `count_loans_by_genre.py` | Number of loans in each recognized genre |
 | `average_loan_period.py` | Average loan period including extensions, truncated to whole days (not rounded) |
-| `list_unreturned_books.py` | Titles and borrower names for records marked as not returned |
+| `list_unreturned_books.py` | Titles and borrower IDs for records marked as not returned |
 | `most_borrowed_books.py` | Most frequently borrowed titles, including all ties in alphabetical order |
 
 ### Required fields by analysis
 
 | Script | Required fields |
 | --- | --- |
-| `sum_loan_extensions.py` | `Forlenget` |
-| `count_loans_by_genre.py` | `Sjanger` |
-| `average_loan_period.py` | `Låneperiode`, `Forlenget` |
-| `list_unreturned_books.py` | `Tilbakelevert`, `Fornavn`, `Etternavn`, `Boktittel` |
-| `most_borrowed_books.py` | `Boktittel` |
+| `sum_loan_extensions.py` | `extension_days` |
+| `count_loans_by_genre.py` | `genre` |
+| `average_loan_period.py` | `loan_period_days`, `extension_days` |
+| `list_unreturned_books.py` | `returned`, `borrower_id`, `book_title` |
+| `most_borrowed_books.py` | `book_title` |
 
 Rows missing a required value are skipped. The CSV must still have a header
 row so the scripts can identify these fields.
@@ -46,19 +46,18 @@ also accept an explicit CSV path.
 ## Expected schema
 
 Use a comma-separated UTF-8 CSV with a header row. A UTF-8 byte-order mark is
-also accepted. The current scripts expect the following exact Norwegian column
-names; preserve these names when preparing compatible synthetic data.
+also accepted. The current scripts expect the following exact English column
+names.
 
 | Column | Meaning |
 | --- | --- |
-| `Fornavn` | Borrower first name |
-| `Etternavn` | Borrower last name |
-| `Boktittel` | Book title |
-| `Sjanger` | Genre: `Fiksjon` (Fiction), `Krim` (Crime), `Sakprosa` (Nonfiction), or `Fantasy` |
-| `Lånedato` | Loan date in day/month/year order |
-| `Låneperiode` | Non-negative integer loan period in days |
-| `Forlenget` | Non-negative integer extension in days; use `0` for no extension |
-| `Tilbakelevert` | Return flag: `Ja` (yes) or `Nei` (no) |
+| `borrower_id` | Synthetic borrower identifier; no personal names are stored |
+| `book_title` | Fictional book title |
+| `genre` | `Fiction`, `Crime`, `Nonfiction`, or `Fantasy` |
+| `loan_date` | Loan date in `YYYY-MM-DD` order |
+| `loan_period_days` | Non-negative integer loan period in days |
+| `extension_days` | Non-negative integer extension in days; use `0` for no extension |
+| `returned` | Return flag: `Yes` or `No` |
 
 ## Analysis behavior
 
@@ -67,9 +66,9 @@ Numeric analyses skip invalid or negative values and print a diagnostic.
 The average is truncated to whole days rather than rounded; for example,
 27 total days across 2 valid rows returns `13`. It returns `None` without
 valid rows.
-Unreturned-book listings require a title and both borrower names. Genre counts
-use only the four listed genres. The loan date is retained as context and is
-not parsed by these analyses.
+Unreturned-book listings require a title and borrower ID. Genre counts use only
+the four listed genres. The loan date is retained as context and is not parsed
+by these analyses.
 An empty unreturned-book result means no qualifying records were found; it does
 not prove that every book was returned. The return flag alone does not establish
 whether a loan is overdue.

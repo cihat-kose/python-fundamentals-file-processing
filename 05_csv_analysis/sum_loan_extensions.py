@@ -9,7 +9,7 @@ def sum_loan_extensions(filename):
     with open(filename, "r", encoding="utf-8-sig", newline="") as csv_file:
         reader = csv.DictReader(csv_file)
         for row in reader:
-            value = (row.get("Forlenget") or "").strip()
+            value = (row.get("extension_days") or "").strip()
             if not value:
                 continue
             try:

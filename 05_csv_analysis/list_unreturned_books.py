@@ -10,13 +10,12 @@ def list_unreturned_books(filename):
     with open(filename, "r", encoding="utf-8-sig", newline="") as csv_file:
         reader = csv.DictReader(csv_file)
         for row in reader:
-            returned = (row.get("Tilbakelevert") or "").strip().lower()
-            if returned == "nei":
-                first_name = (row.get("Fornavn") or "").strip()
-                last_name = (row.get("Etternavn") or "").strip()
-                book = (row.get("Boktittel") or "").strip()
-                if book and first_name and last_name:
-                    result.append((book, f"{first_name} {last_name}"))
+            returned = (row.get("returned") or "").strip().lower()
+            if returned == "no":
+                borrower_id = (row.get("borrower_id") or "").strip()
+                book = (row.get("book_title") or "").strip()
+                if book and borrower_id:
+                    result.append((book, borrower_id))
 
     return result
 

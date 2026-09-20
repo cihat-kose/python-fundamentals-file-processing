@@ -10,7 +10,7 @@ def most_borrowed_books(filename):
     with open(filename, "r", encoding="utf-8-sig", newline="") as csv_file:
         reader = csv.DictReader(csv_file)
         for row in reader:
-            book = (row.get("Boktittel") or "").strip()
+            book = (row.get("book_title") or "").strip()
             if book:
                 counts[book] += 1
 

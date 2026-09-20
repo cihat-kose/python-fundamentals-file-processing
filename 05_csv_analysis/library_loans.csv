@@ -1,25 +1,25 @@
-Fornavn,Etternavn,Boktittel,Sjanger,Lånedato,Låneperiode,Forlenget,Tilbakelevert
-Avery,Example,The Clockwork Orchard,Fantasy,01/01/2025,14,0,Ja
-Riley,Sample,Maps of Moonlight,Krim,04/01/2025,21,3,Ja
-Jordan,Demo,The Quiet Algorithm,Sakprosa,09/01/2025,14,0,Nei
-Casey,Placeholder,Paper Moons at Noon,Fiksjon,14/01/2025,7,1,Ja
-Morgan,Mock,The Clockwork Orchard,Fantasy,20/01/2025,14,0,Ja
-Taylor,Fiction,Maps of Moonlight,Krim,26/01/2025,14,2,Nei
-Quinn,Example,Signals from Cedar Hill,Sakprosa,02/02/2025,28,0,Ja
-Skyler,Sample,Paper Moons at Noon,Fiksjon,08/02/2025,14,0,Ja
-Parker,Demo,The Clockwork Orchard,Fantasy,15/02/2025,21,4,Ja
-Reese,Placeholder,The Quiet Algorithm,Sakprosa,21/02/2025,14,0,Nei
-Finley,Mock,Maps of Moonlight,Krim,01/03/2025,7,0,Ja
-Rowan,Fiction,The Clockwork Orchard,Fantasy,07/03/2025,14,1,Ja
-Emery,Example,Signals from Cedar Hill,Sakprosa,14/03/2025,14,0,Ja
-Blair,Sample,Paper Moons at Noon,Fiksjon,21/03/2025,21,2,Nei
-Sage,Demo,Maps of Moonlight,Krim,28/03/2025,14,0,Ja
-Dakota,Placeholder,The Clockwork Orchard,Fantasy,04/04/2025,14,0,Ja
-Harper,Mock,The Quiet Algorithm,Sakprosa,11/04/2025,28,3,Ja
-Alexis,Fiction,Signals from Cedar Hill,Sakprosa,18/04/2025,14,0,Nei
-Kendall,Example,Maps of Moonlight,Krim,25/04/2025,7,0,Ja
-Marlowe,Sample,The Clockwork Orchard,Fantasy,02/05/2025,14,0,Ja
-Robin,Demo,Maps of Moonlight,Krim,09/05/2025,21,abc,Ja
-Jules,Placeholder,,Krim,16/05/2025,14,0,Ja
-Phoenix,Mock,The Quiet Algorithm,Sakprosa,23/05/2025,14,-2,Nei
-Remy,Fiction,Signals from Cedar Hill,Sakprosa,30/05/2025,14,1,Ja
+borrower_id,book_title,genre,loan_date,loan_period_days,extension_days,returned
+BORR-001,The Clockwork Orchard,Fantasy,2025-01-01,14,0,Yes
+BORR-002,Maps of Moonlight,Crime,2025-01-04,21,3,Yes
+BORR-003,The Quiet Algorithm,Nonfiction,2025-01-09,14,0,No
+BORR-004,Paper Moons at Noon,Fiction,2025-01-14,7,1,Yes
+BORR-005,The Clockwork Orchard,Fantasy,2025-01-20,14,0,Yes
+BORR-006,Maps of Moonlight,Crime,2025-01-26,14,2,No
+BORR-007,Signals from Cedar Hill,Nonfiction,2025-02-02,28,0,Yes
+BORR-008,Paper Moons at Noon,Fiction,2025-02-08,14,0,Yes
+BORR-009,The Clockwork Orchard,Fantasy,2025-02-15,21,4,Yes
+BORR-010,The Quiet Algorithm,Nonfiction,2025-02-21,14,0,No
+BORR-011,Maps of Moonlight,Crime,2025-03-01,7,0,Yes
+BORR-012,The Clockwork Orchard,Fantasy,2025-03-07,14,1,Yes
+BORR-013,Signals from Cedar Hill,Nonfiction,2025-03-14,14,0,Yes
+BORR-014,Paper Moons at Noon,Fiction,2025-03-21,21,2,No
+BORR-015,Maps of Moonlight,Crime,2025-03-28,14,0,Yes
+BORR-016,The Clockwork Orchard,Fantasy,2025-04-04,14,0,Yes
+BORR-017,The Quiet Algorithm,Nonfiction,2025-04-11,28,3,Yes
+BORR-018,Signals from Cedar Hill,Nonfiction,2025-04-18,14,0,No
+BORR-019,Maps of Moonlight,Crime,2025-04-25,7,0,Yes
+BORR-020,The Clockwork Orchard,Fantasy,2025-05-02,14,0,Yes
+BORR-021,Maps of Moonlight,Crime,2025-05-09,21,abc,Yes
+BORR-022,,Crime,2025-05-16,14,0,Yes
+BORR-023,The Quiet Algorithm,Nonfiction,2025-05-23,14,-2,No
+BORR-024,Signals from Cedar Hill,Nonfiction,2025-05-30,14,1,Yes
