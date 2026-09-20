@@ -58,6 +58,37 @@ book titles.
 - `check_function_result(function, arguments, expected_result)` compares the
   return value using equality. Exceptions from the supplied function propagate.
 
+## Featured components
+
+- The date validator performs explicit month-length and Gregorian leap-year
+  checks. The date-difference function parses the same day/month/year format
+  and returns an absolute day count.
+- The IPv4 validator accepts exactly four ASCII decimal octets from 0 through
+  255, including octets with leading zeroes, and always returns a Boolean.
+- `rgb_to_hex` validates integer RGB components and returns uppercase
+  `#RRGGBB`, raising a specific exception for invalid types or ranges.
+- The file-processing scripts create unique sample files, preserve existing
+  files, and sort supported files without overwriting collisions or deleting
+  previous output.
+- The CSV scripts operate on the synthetic ID-based schema documented in
+  `05_csv_analysis/README.md`. They aggregate valid data, report invalid
+  numeric values, skip incomplete records, and include ties in top-title
+  results.
+
+## Technical notes
+
+- The project uses only the Python standard library. CSV files are read as
+  UTF-8 with an optional byte-order mark, and scripts locate their bundled
+  data beside the source file rather than relying on the current directory.
+- Importing application modules produces no demonstration output. Examples
+  run only inside `if __name__ == "__main__":` blocks.
+- Generated and sorted file trees are runtime-only and ignored by Git. The
+  generator creates its directory when needed; the sorter requires an existing
+  source directory and creates its destination folders on demand.
+- The CSV average intentionally truncates valid non-negative durations to
+  whole days because that is the specified behavior. Empty or incomplete
+  results are reported without implying that every book was returned.
+
 ## File organization
 
 ```bash
