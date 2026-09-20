@@ -1,9 +1,10 @@
 # Python Fundamentals, File Processing & CSV Analysis
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![Tests](https://github.com/cihat-kose/python-fundamentals-file-processing/actions/workflows/tests.yml/badge.svg)](https://github.com/cihat-kose/python-fundamentals-file-processing/actions/workflows/tests.yml)
-[![CSV / Data Processing](https://img.shields.io/badge/CSV%20%2F%20Data%20Processing-4B8BBE)](05_csv_analysis/)
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![CSV](https://img.shields.io/badge/CSV-Data%20Processing-4B8BBE?style=for-the-badge&logo=files&logoColor=white)](05_csv_analysis/)
+[![Pytest](https://img.shields.io/badge/Tests-Pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)](tests/)
+[![GitHub Actions](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)](.github/workflows/)
+[![MIT License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
 Small, runnable Python programs exploring control flow, data structures,
 reusable functions, file organization, and CSV analysis. This is a learning
