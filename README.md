@@ -103,7 +103,6 @@ numeric values, empty results, and tied borrowing counts.
 
 This repository remains the **private development and archive repository**.
 A future public portfolio will use a separate repository with clean history.
-The bundled source materials and dataset remain private archive content; the
-borrowing records' provenance cannot be established, and redistribution
-permissions have not been verified. Do not reuse the current named borrowing
-records when creating the future public portfolio dataset.
+The bundled source materials remain private archive content. The working-tree
+CSV is synthetic and uses fictional records; the previous named borrowing
+records were not reused because their provenance could not be established.
