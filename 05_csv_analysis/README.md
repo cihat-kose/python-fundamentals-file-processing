@@ -5,9 +5,9 @@ It provides practice in reading CSV files, filtering records, counting
 categories, and calculating totals and averages with Python's standard library.
 
 The current CSV is a **synthetic dataset** with synthetic borrower IDs and loan
-records prepared for this portfolio. The previous named borrowing records were not
-reused; their provenance could not be established. Keep using newly generated
-fictional records for future public revisions.
+records created for learning and portfolio purposes. The previous named
+borrowing records were not reused; their provenance could not be established.
+Keep using newly generated fictional records for future public revisions.
 It includes repeated titles for aggregation examples and a few deliberate
 missing or invalid values so the validation paths can be demonstrated.
 
