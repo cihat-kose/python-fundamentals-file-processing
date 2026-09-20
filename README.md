@@ -32,6 +32,11 @@ neither prompts for input nor runs its demonstration.
 | `05_csv_analysis/` | CSV reading, filtering, counters, totals, averages, and ties |
 | `tests/` | Regression tests for validation, malformed CSV rows, imports, and file preservation |
 
+The sequence moves from Python basics to data-structure transformations, then
+to reusable functions. It applies those foundations to file-system operations
+before combining them in CSV analysis, where parsing, validation, aggregation,
+and edge-case handling are practiced together.
+
 Code identifiers, explanations, prompts, and messages are in English. The CSV
 uses a human-name-free English schema with synthetic borrower IDs and fictional
 book titles.
