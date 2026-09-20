@@ -1,9 +1,38 @@
 # Library Loan CSV Analysis
 
-These exercises analyze the original Norwegian library-loan CSV. Source
-column names are retained for compatibility with the supplied dataset.
+The dataset represents library borrowing records, with one loan per row.
+It provides practice in reading CSV files, filtering records, counting
+categories, and calculating totals and averages with Python's standard library.
 
-## Source fields
+The separate public portfolio repository will use a **synthetic dataset**
+with fictional borrowers and loan records. The current CSV is retained from
+the original assignment in this private archive; its provenance is unverified,
+so it is not currently described as synthetic.
+
+## Analyses in this directory
+
+| Script | Analysis |
+| --- | --- |
+| `sum_loan_extensions.py` | Total valid extension days across loans |
+| `count_loans_by_genre.py` | Number of loans in each recognized genre |
+| `average_loan_period.py` | Average loan period including extensions, truncated to whole days |
+| `list_unreturned_books.py` | Titles and borrower names for records marked as not returned |
+| `most_borrowed_books.py` | Most frequently borrowed titles, including all ties in alphabetical order |
+
+Run a script from the repository root, for example:
+
+```bash
+python 05_csv_analysis/most_borrowed_books.py
+```
+
+Scripts locate `library_loans.csv` beside their source files. Analysis functions
+also accept an explicit CSV path.
+
+## Expected schema
+
+Use a comma-separated UTF-8 CSV with a header row. A UTF-8 byte-order mark is
+also accepted. The current scripts expect the following exact Norwegian column
+names; preserve these names when preparing compatible synthetic data.
 
 | Column | Meaning |
 | --- | --- |
@@ -12,8 +41,8 @@ column names are retained for compatibility with the supplied dataset.
 | `Boktittel` | Book title |
 | `Sjanger` | Genre: `Fiksjon` (Fiction), `Krim` (Crime), `Sakprosa` (Nonfiction), or `Fantasy` |
 | `Lånedato` | Loan date in day/month/year order |
-| `Låneperiode` | Loan period in days |
-| `Forlenget` | Extension in days |
+| `Låneperiode` | Non-negative integer loan period in days |
+| `Forlenget` | Non-negative integer extension in days; use `0` for no extension |
 | `Tilbakelevert` | Return flag: `Ja` (yes) or `Nei` (no) |
 
 ## Analysis behavior
@@ -21,6 +50,7 @@ column names are retained for compatibility with the supplied dataset.
 Each analysis uses the fields it needs, ignoring missing required values.
 Numeric analyses skip invalid or negative values and print a diagnostic.
 The average is truncated to whole days and returns `None` without valid rows.
+Unreturned-book listings require a title and both borrower names. Genre counts
+use only the four listed genres. The loan date is retained as context and is
+not parsed by these analyses.
 The return flag alone does not establish whether a loan is overdue.
-
-Names and book titles remain as supplied; their provenance is unverified.
