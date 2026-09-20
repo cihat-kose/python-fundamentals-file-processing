@@ -38,7 +38,7 @@ class ValidationTests(unittest.TestCase):
     def test_dates(self):
         validate = load("01_python_basics/validate_date.py").is_valid_date
         self.assertTrue(validate("29/02/2000"))
-        for value in ("29/02/1900", "31/04/2024", "hello", "1/2/0"):
+        for value in ("29/02/1900", "31/04/2024", "hello", "1/2/0", None, 2024):
             self.assertFalse(validate(value))
         difference = load("03_functions/date_difference.py").days_between_dates
         self.assertEqual(difference("21/11/2024", "01/01/2024"), 325)

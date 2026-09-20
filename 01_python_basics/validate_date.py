@@ -7,7 +7,7 @@ def is_valid_date(value):
     """Return whether value describes a valid date (years 1 through 9999)."""
     try:
         datetime.strptime(value, "%d/%m/%Y")
-    except ValueError:
+    except (TypeError, ValueError):
         return False
     return True
 
