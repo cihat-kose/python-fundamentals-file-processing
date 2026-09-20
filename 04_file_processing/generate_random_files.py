@@ -31,8 +31,16 @@ def generate_random_files(directory=DEFAULT_DIRECTORY, count=30):
     return created
 
 
-if __name__ == "__main__":
-    created = generate_random_files()
-    print(f"Created {len(created)} files in {DEFAULT_DIRECTORY}")
-    for path in sorted(created):
+def print_directory_contents(directory):
+    """Print the files directly inside a directory and a short count."""
+    directory = Path(directory)
+    files = sorted(path for path in directory.iterdir() if path.is_file())
+    print(directory)
+    for path in files:
         print(f"|-- {path.name}")
+    print(f"0 directories, {len(files)} files")
+
+
+if __name__ == "__main__":
+    generate_random_files()
+    print_directory_contents(DEFAULT_DIRECTORY)
