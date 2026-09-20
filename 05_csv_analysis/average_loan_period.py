@@ -5,6 +5,7 @@ from pathlib import Path
 
 
 def average_loan_period(filename):
+    """Return the average duration truncated to the required whole day."""
     total_days = 0
     count = 0
 
