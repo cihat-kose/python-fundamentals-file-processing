@@ -1,3 +1,10 @@
 .idea/
 __pycache__/
 *.pyc
+
+# Local environments and generated exercise output
+.venv/
+.env
+.env.*
+04_file_processing/generated_files/
+04_file_processing/sorted_files/

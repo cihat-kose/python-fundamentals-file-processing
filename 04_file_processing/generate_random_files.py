@@ -1,63 +1,38 @@
-"""
-Oppgave 4.1
-Lag en funksjon som oppretter en mappe kalt generated_files og genererer 30 tilfeldige filer
-med følgende filtyper i denne mappen: .txt, .csv, og .log.
+"""Create empty sample files without deleting existing files."""
 
-Hver fil skal ha:
-- Et tilfeldig navn med mellom 5 og 10 tegn.
-- En tilfeldig filtype valgt fra de tre typene.
-- Innhold i disse filene er ikke viktig — lag gjerne disse filene uten innhold.
-
-Eksempel (struktur):
-
-generated_files
-|-- G5zLehz4.txt
-|-- iTwTrTkU.txt
-|-- vPcaO7jR.csv
-|-- 1Vgi2jbe.log
-‘-- 7NMaq7aa.csv
-
-0 directories, 5 files
-"""
-
-import os
+from pathlib import Path
 import random
-import shutil
 import string
 
-
-def generer_tilfeldig_streng(lengde):
-    bokstaver = string.ascii_letters + string.digits
-    return ''.join(random.choice(bokstaver) for _ in range(lengde))
+DEFAULT_DIRECTORY = Path(__file__).resolve().parent / "generated_files"
 
 
-def opprett_tilfeldige_filer(mappe, antall_filer):
-    filtyper = ['.txt', '.csv', '.log']
-
-    if os.path.exists(mappe):
-        shutil.rmtree(mappe)
-    os.makedirs(mappe)
-
-    for _ in range(antall_filer):
-        filnavn_lengde = random.randint(5, 10)
-        filnavn = generer_tilfeldig_streng(filnavn_lengde)
-        filtype = random.choice(filtyper)
-        filsti = os.path.join(mappe, filnavn + filtype)
-
-        with open(filsti, 'w'):
-            pass
+def generate_random_string(length):
+    return "".join(random.choice(string.ascii_letters + string.digits)
+                   for _ in range(length))
 
 
-def skriv_mappestruktur(mappe):
-    filer = os.listdir(mappe)
-    print(mappe)
-    for fil in filer:
-        print(f"|-- {fil}")
-    print(f"0 mapper, {len(filer)} filer")
+def generate_random_files(directory=DEFAULT_DIRECTORY, count=30):
+    """Add count unique files; existing files are preserved."""
+    if type(count) is not int or count < 0:
+        raise ValueError("count must be a non-negative integer")
+    directory = Path(directory)
+    directory.mkdir(parents=True, exist_ok=True)
+    created = []
+    while len(created) < count:
+        name = generate_random_string(random.randint(5, 10))
+        path = directory / (name + random.choice((".txt", ".csv", ".log")))
+        try:
+            with path.open("x", encoding="utf-8"):
+                pass
+        except FileExistsError:
+            continue
+        created.append(path)
+    return created
 
 
 if __name__ == "__main__":
-    mappe_navn = "generated_files"
-    antall_filer = 30
-    opprett_tilfeldige_filer(mappe_navn, antall_filer)
-    skriv_mappestruktur(mappe_navn)
+    created = generate_random_files()
+    print(f"Created {len(created)} files in {DEFAULT_DIRECTORY}")
+    for path in sorted(created):
+        print(f"|-- {path.name}")

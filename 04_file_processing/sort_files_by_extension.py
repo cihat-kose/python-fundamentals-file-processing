@@ -1,52 +1,39 @@
-"""
-Oppgave 4.2
-Lag en funksjon som leser filene i generated_files og sorterer dem i undermapper basert på filtype:
+"""Move supported files into extension folders without overwriting files."""
 
-- Opprett en ny mappe kalt sorted_files.
-- Opprett undermapper kalt txt, csv, og log inne i denne mappen kalt sorted_files.
-- Flytt filene fra generated_files til riktig undermappe i sorted_files basert på deres filtype.
-
-Eksempel (struktur):
-
-sorted_files
-|-- csv
-|   |-- vPcaO7jR.csv
-|   ‘-- 7NMaq7aa.csv
-|-- log
-|   ‘-- 1Vgi2jbe.log
-‘-- txt
-    |-- G5zLehz4.txt
-    ‘-- iTwTrTkU.txt
-
-3 directories, 5 files
-"""
-
-import os
+from pathlib import Path
 import shutil
 
+BASE_DIRECTORY = Path(__file__).resolve().parent
 
-def sorter_filer():
-    kilde_mappe = "generated_files"
-    dest_mappe = "sorted_files"
 
-    if os.path.exists(dest_mappe):
-        shutil.rmtree(dest_mappe)
-
-    os.makedirs(os.path.join(dest_mappe, "txt"))
-    os.makedirs(os.path.join(dest_mappe, "csv"))
-    os.makedirs(os.path.join(dest_mappe, "log"))
-
-    for fil in os.listdir(kilde_mappe):
-        filsti = os.path.join(kilde_mappe, fil)
-
-        if fil.endswith(".txt"):
-            shutil.move(filsti, os.path.join(dest_mappe, "txt", fil))
-        elif fil.endswith(".csv"):
-            shutil.move(filsti, os.path.join(dest_mappe, "csv", fil))
-        elif fil.endswith(".log"):
-            shutil.move(filsti, os.path.join(dest_mappe, "log", fil))
-    print("Filer er sortert og flyttet til 'sorted_files'.")
+def sort_files_by_extension(source=BASE_DIRECTORY / "generated_files",
+                            destination=BASE_DIRECTORY / "sorted_files"):
+    """Move .txt, .csv and .log files; skip links, other types and collisions."""
+    source = Path(source).resolve()
+    destination = Path(destination).resolve()
+    if not source.is_dir():
+        raise FileNotFoundError(f"Source directory does not exist: {source}")
+    if source == destination or source in destination.parents or destination in source.parents:
+        raise ValueError("Source and destination must be separate directories")
+    moved = []
+    for path in sorted(source.iterdir()):
+        extension = path.suffix.lower()
+        if path.is_symlink() or not path.is_file() or extension not in {".txt", ".csv", ".log"}:
+            continue
+        folder = destination / extension[1:]
+        if folder.is_symlink():
+            raise ValueError(f"Destination subdirectory must not be a symlink: {folder}")
+        folder.mkdir(parents=True, exist_ok=True)
+        target = folder / path.name
+        if target.exists() or target.is_symlink():
+            continue
+        shutil.move(str(path), str(target))
+        moved.append(target)
+    return moved
 
 
 if __name__ == "__main__":
-    sorter_filer()
+    try:
+        print(f"Moved {len(sort_files_by_extension())} files into sorted_files.")
+    except (OSError, ValueError) as error:
+        raise SystemExit(str(error))
