@@ -13,13 +13,20 @@ def main():
                      len(str(start * start)), len(str(end * end)),
                      len(str(start * end)))
 
-    header = "| " + " | ".join(f"{i:>{cell_width}}" for i in range(start, end + 1)) + " |"
-    separator = "| " + " | ".join("-" * cell_width for _ in range(start, end + 1)) + " |"
+    header = "| " + " | ".join(
+        f"{column:>{cell_width}}" for column in range(start, end + 1)
+    ) + " |"
+    separator = "| " + " | ".join(
+        "-" * cell_width for _ in range(start, end + 1)
+    ) + " |"
     print(header)
     print(separator)
 
-    for i in range(start, end + 1):
-        row = "| " + " | ".join(f"{i * j:>{cell_width}}" for j in range(start, end + 1)) + " |"
+    for row_value in range(start, end + 1):
+        row = "| " + " | ".join(
+            f"{row_value * column_value:>{cell_width}}"
+            for column_value in range(start, end + 1)
+        ) + " |"
         print(row)
 
 

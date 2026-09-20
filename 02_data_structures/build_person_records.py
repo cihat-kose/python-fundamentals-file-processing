@@ -6,9 +6,9 @@ def main():
 
     dictionary_list = []
 
-    for i in range(0, len(names_and_ages), 2):
-        name = names_and_ages[i]
-        age = names_and_ages[i + 1]
+    for pair_index in range(0, len(names_and_ages), 2):
+        name = names_and_ages[pair_index]
+        age = names_and_ages[pair_index + 1]
         dictionary_list.append({"name": name, "age": age})
 
     print(dictionary_list)

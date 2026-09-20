@@ -7,8 +7,8 @@ from collections import Counter
 
 def most_borrowed_books(filename):
     counts = Counter()
-    with open(filename, "r", encoding="utf-8-sig", newline="") as f:
-        reader = csv.DictReader(f)
+    with open(filename, "r", encoding="utf-8-sig", newline="") as csv_file:
+        reader = csv.DictReader(csv_file)
         for row in reader:
             book = (row.get("Boktittel") or "").strip()
             if book:

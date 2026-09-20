@@ -6,8 +6,8 @@ from pathlib import Path
 
 def sum_loan_extensions(filename):
     total = 0
-    with open(filename, "r", encoding="utf-8-sig", newline="") as f:
-        reader = csv.DictReader(f)
+    with open(filename, "r", encoding="utf-8-sig", newline="") as csv_file:
+        reader = csv.DictReader(csv_file)
         for row in reader:
             value = (row.get("Forlenget") or "").strip()
             if not value:

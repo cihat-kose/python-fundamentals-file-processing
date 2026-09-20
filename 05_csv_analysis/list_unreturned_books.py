@@ -7,8 +7,8 @@ from pathlib import Path
 def list_unreturned_books(filename):
     result = []
 
-    with open(filename, "r", encoding="utf-8-sig", newline="") as f:
-        reader = csv.DictReader(f)
+    with open(filename, "r", encoding="utf-8-sig", newline="") as csv_file:
+        reader = csv.DictReader(csv_file)
         for row in reader:
             returned = (row.get("Tilbakelevert") or "").strip().lower()
             if returned == "nei":

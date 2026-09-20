@@ -9,8 +9,8 @@ def count_loans_by_genre(filename):
     valid_genres = {"Fiksjon", "Krim", "Sakprosa", "Fantasy"}
     counts = Counter()
 
-    with open(filename, "r", encoding="utf-8-sig", newline="") as f:
-        reader = csv.DictReader(f)
+    with open(filename, "r", encoding="utf-8-sig", newline="") as csv_file:
+        reader = csv.DictReader(csv_file)
         for row in reader:
             genre = (row.get("Sjanger") or "").strip()
             if genre in valid_genres:

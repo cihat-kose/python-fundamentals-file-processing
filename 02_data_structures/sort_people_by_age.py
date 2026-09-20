@@ -6,13 +6,13 @@ def main():
 
     ages_by_name = {}
 
-    for i in range(0, len(names_and_ages), 2):
-        ages_by_name[names_and_ages[i]] = names_and_ages[i + 1]
+    for pair_index in range(0, len(names_and_ages), 2):
+        ages_by_name[names_and_ages[pair_index]] = names_and_ages[pair_index + 1]
 
     sorted_names = sorted(ages_by_name, key=ages_by_name.get, reverse=True)
 
-    for i in sorted_names:
-        print(f"{i} is {ages_by_name[i]} years old")
+    for name in sorted_names:
+        print(f"{name} is {ages_by_name[name]} years old")
 
 
 if __name__ == "__main__":

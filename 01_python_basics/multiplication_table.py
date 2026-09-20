@@ -4,8 +4,8 @@
 def main():
     number = int(input("Enter an integer: "))
 
-    for i in range(1, 11):
-        print(f"{number} * {i} = {number * i}")
+    for multiplier in range(1, 11):
+        print(f"{number} * {multiplier} = {number * multiplier}")
 
 
 if __name__ == "__main__":

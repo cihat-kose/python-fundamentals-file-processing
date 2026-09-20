@@ -10,8 +10,8 @@ def main():
 
     total = 0
 
-    for i in range(1, number + 1):
-        total += i
+    for current_number in range(1, number + 1):
+        total += current_number
 
     print(f"The sum of integers from 1 to {number} (inclusive) is: {total}")
 

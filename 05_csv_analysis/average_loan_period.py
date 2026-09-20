@@ -8,8 +8,8 @@ def average_loan_period(filename):
     total_days = 0
     count = 0
 
-    with open(filename, "r", encoding="utf-8-sig", newline="") as f:
-        reader = csv.DictReader(f)
+    with open(filename, "r", encoding="utf-8-sig", newline="") as csv_file:
+        reader = csv.DictReader(csv_file)
         for row_number, row in enumerate(reader, start=2):
             loan_period_text = (row.get("Låneperiode") or "").strip()
             extension_text = (row.get("Forlenget") or "").strip()
