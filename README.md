@@ -1,6 +1,7 @@
 # Python Fundamentals, File Processing & CSV Analysis
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Tests](https://github.com/cihat-kose/python-fundamentals-file-processing/actions/workflows/tests.yml/badge.svg)](https://github.com/cihat-kose/python-fundamentals-file-processing/actions/workflows/tests.yml)
 [![CSV / Data Processing](https://img.shields.io/badge/CSV%20%2F%20Data%20Processing-4B8BBE)](05_csv_analysis/)
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
@@ -142,9 +143,17 @@ The return flag does not by itself establish whether a loan is overdue.
 python -m unittest discover -s tests -v
 ```
 
-Tests cover leap years, malformed IPv4 octets, RGB types and ranges, silent
-imports, file collisions and preservation, incomplete CSV rows, invalid
-numeric values, empty results, and tied borrowing counts.
+GitHub Actions runs on every push and pull request using Python 3.10 and 3.13.
+The workflow first checks all Python files with `python -m compileall -q .`,
+then runs the unittest suite. There are no third-party runtime or test
+dependencies.
+
+Tests cover expected source directories, the absence of legacy `oppgave*`
+source directories, README example script paths, and valid local README links.
+They also verify that imports neither prompt for input nor produce output,
+and check leap years, malformed IPv4 octets, RGB types and ranges, file
+collisions and preservation, the CSV schema, incomplete rows, invalid numeric
+values, empty results, and tied borrowing counts.
 
 ## Academic Context
 
@@ -160,7 +169,7 @@ See [LICENSE](LICENSE) for details.
 
 ## Repository status
 
-This repository is a public learning and portfolio project. The library-loan
-dataset was provided as part of the original coursework and is used solely for
-educational and portfolio purposes. It is not presented as a record of actual
-library activity.
+This repository is a public learning and portfolio project. It initially used
+a dataset supplied as part of the original coursework. The current
+`05_csv_analysis/library_loans.csv` is a synthetic dataset created for portfolio
+and testing purposes. It contains no personal names or real borrowing records.

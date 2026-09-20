@@ -4,11 +4,11 @@ The dataset represents library borrowing records, with one loan per row.
 It provides practice in reading CSV files, filtering records, counting
 categories, and calculating totals and averages with Python's standard library.
 
-The library-loan dataset was provided as part of the original coursework and
-is used solely for educational and portfolio purposes. It is not presented as
-a record of actual library activity. It includes repeated titles for
-aggregation examples and a few deliberate missing or invalid values so the
-validation paths can be demonstrated.
+The project initially used a dataset supplied as part of the original
+coursework. The current `library_loans.csv` is a synthetic dataset created for
+portfolio and testing purposes. It contains no personal names or real borrowing
+records. It includes repeated titles for aggregation examples and a few
+deliberate missing or invalid values so the validation paths can be demonstrated.
 
 ## Analyses in this directory
 

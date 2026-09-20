@@ -5,11 +5,20 @@ import csv
 import importlib.util
 import io
 from pathlib import Path
+import re
 import tempfile
 import unittest
 from unittest.mock import patch
+from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
+SOURCE_DIRECTORIES = (
+    "01_python_basics",
+    "02_data_structures",
+    "03_functions",
+    "04_file_processing",
+    "05_csv_analysis",
+)
 
 
 def load(relative):
@@ -19,14 +28,54 @@ def load(relative):
     return module
 
 
+class RepositoryStructureTests(unittest.TestCase):
+    def test_source_directories_exist(self):
+        for directory in SOURCE_DIRECTORIES:
+            with self.subTest(directory=directory):
+                self.assertTrue((ROOT / directory).is_dir())
+
+    def test_legacy_source_directories_are_absent(self):
+        self.assertEqual(
+            sorted(path.name for path in ROOT.glob("oppgave*") if path.is_dir()),
+            [],
+        )
+
+    def test_readme_example_scripts_exist(self):
+        for relative in (
+            "01_python_basics/sum_number_range.py",
+            "03_functions/rgb_to_hex.py",
+            "05_csv_analysis/most_borrowed_books.py",
+        ):
+            with self.subTest(path=relative):
+                self.assertTrue((ROOT / relative).is_file())
+
+    def test_readme_local_links_exist(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        # Match inline link destinations, including links around badge images.
+        targets = re.findall(r"\]\(([^\s)]+)\)", readme)
+        local_paths = []
+        for target in targets:
+            url = urlsplit(target)
+            if not url.scheme and not url.netloc and url.path:
+                local_paths.append(unquote(url.path))
+        self.assertTrue(local_paths, "Expected local Markdown links in README")
+        for relative in local_paths:
+            with self.subTest(target=relative):
+                self.assertTrue((ROOT / relative).exists())
+
+
 class ValidationTests(unittest.TestCase):
     def test_imports_have_no_side_effects(self):
-        output = io.StringIO()
-        with patch("builtins.input", side_effect=AssertionError("input on import")):
-            with contextlib.redirect_stdout(output):
-                for path in ROOT.glob("0*/*.py"):
-                    load(path.relative_to(ROOT))
-        self.assertEqual(output.getvalue(), "")
+        for directory in SOURCE_DIRECTORIES:
+            paths = sorted((ROOT / directory).glob("*.py"))
+            self.assertTrue(paths, f"No source modules found in {directory}")
+            for path in paths:
+                with self.subTest(module=str(path.relative_to(ROOT))):
+                    output = io.StringIO()
+                    with patch("builtins.input", side_effect=AssertionError("input on import")):
+                        with contextlib.redirect_stdout(output):
+                            load(path.relative_to(ROOT))
+                    self.assertEqual(output.getvalue(), "")
 
     def test_ipv4_boundaries(self):
         validate = load("03_functions/ipv4_validator.py").is_valid_ipv4_address
@@ -104,6 +153,7 @@ class FileTests(unittest.TestCase):
 class CsvTests(unittest.TestCase):
     def test_portfolio_dataset_uses_human_name_free_schema(self):
         path = ROOT / "05_csv_analysis" / "library_loans.csv"
+        self.assertTrue(path.is_file())
         with path.open(encoding="utf-8", newline="") as stream:
             reader = csv.DictReader(stream)
             self.assertEqual(reader.fieldnames, [
