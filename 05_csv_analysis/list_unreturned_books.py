@@ -1,4 +1,4 @@
-"""List unreturned books. See dataset_overview.py for source fields."""
+"""List unreturned books. See README.md for source fields."""
 
 import csv
 from pathlib import Path

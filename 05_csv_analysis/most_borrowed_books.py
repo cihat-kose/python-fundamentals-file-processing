@@ -1,4 +1,4 @@
-"""Most borrowed books. See dataset_overview.py for source fields."""
+"""Most borrowed books. See README.md for source fields."""
 
 import csv
 from pathlib import Path

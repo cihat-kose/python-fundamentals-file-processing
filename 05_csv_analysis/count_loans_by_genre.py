@@ -1,4 +1,4 @@
-"""Count loans by genre. See dataset_overview.py for source fields."""
+"""Count loans by genre. See README.md for source fields."""
 
 import csv
 from pathlib import Path

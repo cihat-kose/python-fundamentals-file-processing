@@ -76,7 +76,7 @@ output is ignored.
 
 The scripts locate `05_csv_analysis/library_loans.csv` beside their source
 files. Their functions accept a different CSV path for experimentation.
-[`dataset_overview.py`](05_csv_analysis/dataset_overview.py) documents the
+[CSV analysis documentation](05_csv_analysis/README.md) documents the
 Norwegian source fields and their English meanings. CLI genre labels are
 translated; original book titles and names are preserved.
 

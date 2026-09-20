@@ -1,4 +1,4 @@
-"""Average loan period. See dataset_overview.py for source fields."""
+"""Average loan period. See README.md for source fields."""
 
 import csv
 from pathlib import Path
