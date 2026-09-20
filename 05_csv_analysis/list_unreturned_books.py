@@ -24,7 +24,7 @@ def list_unreturned_books(filename):
 if __name__ == "__main__":
     books = list_unreturned_books(Path(__file__).with_name("library_loans.csv"))
     if not books:
-        print("No books marked as unreturned with complete borrower details were found.")
+        print("No records explicitly marked as unreturned.")
     else:
         print("Unreturned books:")
         for book, name in books:
